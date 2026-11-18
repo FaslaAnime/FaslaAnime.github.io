@@ -26,9 +26,11 @@
   var fwEl = document.getElementById("devFw");
   var chainEl = document.getElementById("devChain");
   var stateEl = document.getElementById("devState");
+  var cacheEl = document.getElementById("devCache");
   var select = document.getElementById("fwSelect");
   var noteEl = document.getElementById("chainNote");
   var button = document.getElementById("startBtn");
+  var cacheBtn = document.getElementById("cacheBtn");
   var logEl = document.getElementById("log");
 
   function detect() {
@@ -87,9 +89,17 @@
   stateEl.textContent = detected.isPs4
     ? (detected.option ? "جاهز للتجربة" : "نسخة غير مدعومة بالخريطة")
     : "للعرض فقط";
+  cacheEl.textContent = detected.isPs4 ? "ينصح بالتجهيز أول مرة" : "للعرض فقط";
   update();
 
   select.addEventListener("change", update);
+
+  cacheBtn.addEventListener("click", function () {
+    logEl.textContent = "جارٍ تجهيز كاش المحرك المحلي...\n" +
+      "كل الملفات والبايلودات بتتحفظ على الجهاز قبل التشغيل.";
+    // The engine's own primer caches every asset, then hands off to the engine.
+    window.location.href = "../jb/cache.html";
+  });
 
   button.addEventListener("click", function () {
     var option = current();

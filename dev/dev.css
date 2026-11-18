@@ -102,8 +102,8 @@ select {
   padding: 10px 12px;
 }
 .chain-note { margin-top: 14px; font-size: var(--small); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 .btn {
-  margin-top: 20px;
   background: var(--accent);
   color: var(--bg);
   border: 0;
@@ -115,6 +115,8 @@ select {
   cursor: pointer;
 }
 .btn:hover { background: #d9b46a; }
+.secondary { background: var(--surface); color: var(--ink); }
+.secondary:hover { background: #242019; }
 .log {
   margin-top: 16px;
   background: var(--bg);

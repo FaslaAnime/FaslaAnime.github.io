@@ -28,7 +28,10 @@
   <h1>هوست جديد تحت التطوير</h1>
   <p class="lead">واجهة أصلية مكتوبة هنا، بتشغّل نفس ملفات المحرك المخزّنة جوه الموقع. مفيش هوست خارجي ولا رابط لشخص تاني.</p>
   <p class="warn">النسخة دي تجريبية، لسه ما اتجربتش على PS4 حقيقي، فالنتائج غير مضمونة. استخدم حساب منفصل ونسخة احتياطية قبل أي تفعيل.</p>
-  <button class="btn" id="startBtn" type="button">ابدأ التفعيل التجريبي</button>
+  <div class="actions">
+    <button class="btn" id="startBtn" type="button">ابدأ التفعيل التجريبي</button>
+    <button class="btn secondary" id="cacheBtn" type="button">جهّز الكاش وابدأ</button>
+  </div>
   <pre class="log" id="log" aria-live="polite">جاهز.</pre>
 
   <section class="panel" data-ui aria-label="كشف الجهاز والنسخة">
@@ -37,7 +40,9 @@
     <div class="panel-row"><span>النسخة المكتشفة</span><b id="devFw" dir="ltr">…</b></div>
     <div class="panel-row"><span>السلسلة المقترحة</span><b id="devChain" dir="ltr">…</b></div>
     <div class="panel-row"><span>الحالة</span><b id="devState">…</b></div>
+    <div class="panel-row"><span>الكاش</span><b id="devCache">…</b></div>
   </section>
+  <p class="chain-note">التغطية المتاحة محلياً: 6.00 – 12.02 و12.50 – 13.52. النسخ خارج النطاق مفيش لها سلسلة محلية.</p>
 
   <section class="block" aria-labelledby="pick-title">
     <h2 id="pick-title">اختر نسخة الجهاز</h2>
