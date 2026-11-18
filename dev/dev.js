@@ -178,7 +178,8 @@
     "jb/slopkit/index.html", "jb/slopkit/chain_lapse.js",
     "jb/slopkit/chain_poops.js", "jb/slopkit/payload.bin",
     "jb/psfree/index.html", "jb/psfree/bundle.js", "jb/psfree/payload.bin",
-    "jb/badhoist/index.html"
+    "jb/badhoist/index.html", "jb/badhoist/672entrypoint.js",
+    "jb/badhoist/672kexploit.js", "jb/badhoist/goldhen.bin"
   ];
 
   function parseManifest(text) {

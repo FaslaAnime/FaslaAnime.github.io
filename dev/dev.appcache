@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# masry-dev-host-6
+# masry-dev-host-7
 
 CACHE:
 ag/afterglow.js
@@ -58,6 +58,9 @@ dev.appcache
 dev.css
 dev.js
 index.html
+jb/badhoist/672entrypoint.js
+jb/badhoist/672kexploit.js
+jb/badhoist/goldhen.bin
 jb/badhoist/index.html
 jb/bridge.js
 jb/cssfontface/index.html

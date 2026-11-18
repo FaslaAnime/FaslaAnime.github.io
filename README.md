@@ -42,7 +42,9 @@
 ملفات السلسلة جوه كل مجلد نسخ غير معدّلة من `jb/` وWebKitty، واللي اكتب من
 الصفر هو `index.html` و`bridge.js` بس. الإسناد في `dev/jb/NOTICE.md`.
 صفحة `Developed by X-F1REBALL-X` مش جزء من مسار التفعيل بعد كده.
-`badhoist` لـ 6.70–6.72 صفحته بتقول بالوضوح إن مفيش سلسلة محلية لها.
+`badhoist` لـ 6.70–6.72 بيشغّل سلسلة WebKitty الأصلية (Fire30 userland +
+Sleirsgoevy kernel) مخزّنة محلياً في `dev/jb/badhoist/` بدون تعديل، والإسناد
+في `dev/jb/NOTICE.md`.
 النسخ `14.00` و`14.02` بتروّح لصفحة `dev/ag/index.html`، وهي واجهة بهوية مصري
 بتشغّل سلسلة Slopkit Afterglow مخزّنة محلياً. ملفات السلسلة والـ kpatches
 والبايلودات في `dev/ag/` نسخ غير معدّلة من مشروع

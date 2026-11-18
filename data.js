@@ -9,7 +9,7 @@ const ERAS = [
 
 const FIRMWARES = [
   { era: "6", range: "6.00 – 6.69", chain: "cssfontface", chainName: "CSSFontFace + Lapse", note: "أول نطاق يبدأ به المحرك المدمج", state: "يعمل" },
-  { era: "6", range: "6.70 – 6.72", chain: "badhoist", chainName: "BadHoist", note: "مفيش سلسلة محلية متوفرة لحد دلوقتي", state: "غير متوفر" },
+  { era: "6", range: "6.70 – 6.72", chain: "badhoist", chainName: "BadHoist", note: "سلسلة WebKitty الأصلية لـ 6.7x", state: "يعمل" },
   { era: "78", range: "7.00 – 8.52", chain: "cssfontface", chainName: "CSSFontFace + Lapse", note: "تغطية واسعة من متصفح السوني", state: "يعمل" },
   { era: "9", range: "9.00", chain: "psfree", chainName: "PSFree + Lapse + GoldHEN", note: "النسخة الذهبية، Golden Hen", state: "الأكثر استخداماً" },
   { era: "9", range: "9.60", chain: "psfree", chainName: "PSFree + Lapse", note: "نفس السلسلة مع أوفستات 9.60", state: "يعمل" },

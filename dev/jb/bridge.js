@@ -26,6 +26,8 @@
   // files are present in its folder as well so no path is ever missing.
   var payloadPath = "./payload.bin";
   if (chain === "relapse") payloadPath = payload === "hen" ? "./hen.bin" : "./goldhen.bin";
+  // BadHoist ships only GoldHEN for 6.7x in this host.
+  if (chain === "badhoist") payloadPath = "./goldhen.bin";
   sessionStorage.setItem("payload_path", payloadPath);
 
   // WebKitty's own chain selector. Explicit values stop a stale choice from a
@@ -53,14 +55,14 @@
   if (chain === "slopkit") {
     label = localStorage.getItem("exploitChain") === "6" ? "Slopkit Netctrl" : "Slopkit Lapse";
   }
-  if (chain === "badhoist") label = "BadHoist";
+  if (chain === "badhoist") label = "BadHoist + Sleirsgoevy 6.7x";
   if (chain === "psfree") label = "PSFree + Lapse";
 
   setText("jbFw", fw || "من الجهاز");
   setText("jbChain", label);
   setText("jbPayload", chain === "relapse"
     ? (payload === "hen" ? "PS4HEN" : "GoldHEN")
-    : "payload.bin من السلسلة");
+    : chain === "badhoist" ? "GoldHEN" : "payload.bin من السلسلة");
 
   // Hooks the vendored chains look for before they report a result.
   window.isPayloadElf = function (p) {
@@ -128,7 +130,54 @@
   }
 
   if (chain === "badhoist") {
-    setState("مفيش سلسلة محلية لهذه النسخة");
+    // 672entrypoint.js is loaded synchronously before this script and sets the
+    // two flags below. The kernel file is the unchanged WebKitty 6.7x chain.
+    var entry = window.entrypoint672_result || 0;
+    var setup = window.exploitsetup672_result || 0;
+    appendText("log", "entrypoint=" + entry + " setup=" + setup + "\n");
+    if (entry < 1 || setup < 1) {
+      setState("فشل تحضير السلسلة، حدّث الصفحة");
+      appendText("log", "Userland entry point did not arm on this browser.\n");
+      document.body.classList.add("fail");
+      return;
+    }
+
+    setState("جارٍ تشغيل السلسلة…");
+    var kernel = document.createElement("script");
+    kernel.src = "./672kexploit.js";
+    kernel.onerror = function () {
+      setState("فشل تحميل السلسلة");
+      document.body.classList.add("fail");
+    };
+    kernel.onload = function () {
+      var result;
+      try {
+        result = KernelExploit672();
+      } catch (error) {
+        setState("فشل التهكير، أعد تشغيل الجهاز");
+        appendText("log", (error && error.message ? error.message : String(error)) + "\n");
+        document.body.classList.add("fail");
+        return;
+      }
+      appendText("log", "KernelExploit672 -> " + result + "\n");
+      // WebKitty treats 0, 91 and 179 as success (179 = already jailbroken).
+      if (result !== 0 && result !== 91 && result !== 179) {
+        setState("فشل التهكير، أعد تشغيل الجهاز");
+        document.body.classList.add("fail");
+        return;
+      }
+      try {
+        getPayload672(payloadPath);
+      } catch (error) {
+        setState("فشل حقن البايلود");
+        appendText("log", (error && error.message ? error.message : String(error)) + "\n");
+        document.body.classList.add("fail");
+        return;
+      }
+      // getPayload672 schedules LoadPayload672 internally after 500ms.
+      setTimeout(function () { window.jailbreakSuccess(); }, 1200);
+    };
+    document.head.appendChild(kernel);
     return;
   }
 

@@ -20,27 +20,31 @@
 </header>
 
 <main class="column">
-  <h1>النسخ 6.70 – 6.72</h1>
-  <p class="lead">مفيش سلسلة BadHoist حقيقية مخزّنة محلياً لحد دلوقتي، فالهوست مش هيقدر يفعّل النسخ دي من غير ملفات السلسلة.</p>
-  <p class="warn">بنقول لك ده بالوضوح بدل ما نعرض صفحة تبدو عاملة وإياه مش عاملة. النطاقات التانية ليها سلاسل محلية.</p>
+  <h1>هوست مصري لسلسلة BadHoist</h1>
+  <p class="lead">النسخ 6.70 و6.71 و6.72. الواجهة والهوية بتاعتنا، والسلسلة الأصلية مخزّنة محلياً جوه الموقع من WebKitty.</p>
+  <p class="warn">التفعيل الفعلي محتاج تجربة على PS4 حقيقي. استخدم حساب منفصل ونسخة احتياطية قبل أي تفعيل.</p>
 
   <div class="readout">
-    <div><span>النسخة</span><b id="jbFw" dir="ltr">6.70 – 6.72</b></div>
-    <div><span>السلسلة</span><b id="jbChain" dir="ltr">BadHoist</b></div>
-    <div><span>الحالة</span><b>مش متوفرة محلياً</b></div>
+    <div><span>النسخة</span><b id="jbFw" dir="ltr">من الجهاز</b></div>
+    <div><span>السلسلة</span><b id="jbChain" dir="ltr">BadHoist + Sleirsgoevy 6.7x</b></div>
+    <div><span>البايلود</span><b id="jbPayload" dir="ltr">GoldHEN</b></div>
   </div>
 
-  <a class="action" href="../../index.html">غيّر النسخة</a>
-  <div id="state" class="notice">مفيش سلسلة محلية لهذه النسخة</div>
+  <a class="action" href="../../index.html">غيّر النسخة أو البايلود</a>
+  <div id="state" class="state">جارٍ التحضير…</div>
   <div id="stage" class="notice"></div>
   <p id="msg" class="lead"></p>
   <b id="fwMeta" class="latin" hidden></b>
   <div id="successMsg" class="notice"></div>
+  <pre id="log" class="console">في انتظار السلسلة…</pre>
   <pre id="console" class="console" hidden></pre>
   <pre id="out" class="console" hidden></pre>
   <div id="DebugConsole" class="console" hidden></div>
 </main>
 
+<!-- The upstream 6.72 userland entry point runs synchronously here, exactly as
+     WebKitty runs it in its bare-bone flow. This file is unchanged upstream code. -->
+<script src="./672entrypoint.js"></script>
 <script src="../bridge.js"></script>
 </body>
 </html>
