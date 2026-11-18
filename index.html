@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>المصري للعالميه: تفعيل الجولد هين من متصفح السوني 4</title>
-<meta name="description" content="محرك تهكير سوني 4 شغال جوه الموقع: افتح الصفحة على متصفح السوني ويتفعل GoldHEN من النسخة 6.00 حتى 13.52.">
+<meta name="description" content="محرك تهكير سوني 4 مستضاف داخل الموقع: افتح الرابط على متصفح السوني ويتفعل GoldHEN من 6.00 حتى 13.52.">
 <meta name="theme-color" content="#0c0a08">
 <script>
 (function () {
@@ -16,221 +16,68 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="site-head">
-  <a class="wordmark" href="#top">المصري للعالميه</a>
-  <nav class="nav" aria-label="التنقل">
-    <a href="#firmwares">النسخات</a>
-    <a href="#steps">التحضير</a>
-    <a href="#engine">المحرك</a>
-    <a href="#faq">أسئلة</a>
-  </nav>
-  <a class="btn btn--accent head-action" href="jb/index.html">فعّل الآن</a>
+<header class="top">
+  <a class="brand" href="#top">المصري للعالميه</a>
+  <a class="toplink" href="jb/index.html">افتح المحرك ←</a>
 </header>
 
-<main id="top">
+<main id="top" class="column">
 
-  <!-- Hero: sentence split by a working frame -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-stage">
-      <h1 class="hero-title" id="hero-title">
-        <span class="hero-half hero-half--start">من متصفح السوني</span>
-        <span class="hero-half hero-half--end">يتفعّل الجولد هين</span>
-      </h1>
+    <h1 id="hero-title">من متصفح السوني<br>يتفعّل الجولد هين</h1>
+    <p class="lead">المحرك مستضاف جوه الموقع نفسه. افتح الرابط على السوني، هيتعرف على نسختك ويشغّل السلسلة المناسبة من غير ما يوديك لموقع تاني.</p>
+    <div class="actions">
+      <a class="btn" href="jb/index.html">فعّل الجولد هين</a>
+      <a class="textlink" href="#firmwares">شوف النسخات ←</a>
+    </div>
 
-      <div class="reel" data-ui aria-label="شاشة التفعيل الحقيقية">
-        <div class="reel-track" id="reelTrack">
-
-          <article class="frame is-current">
-            <div class="ui-top"><span>PS4JB</span><span>6.00 – 13.52</span></div>
-            <div class="ui-label">Firmware</div>
-            <div class="ui-big" id="frameFw">9.00</div>
-            <div class="ui-row"><span>Chain</span><b id="frameChain">psfree + lapse</b></div>
-            <div class="ui-row"><span>Source</span><b>User-Agent</b></div>
-          </article>
-
-          <article class="frame">
-            <div class="ui-top"><span>PS4JB</span><span>Cache / Status</span></div>
-            <div class="ui-ok">Cache ready</div>
-            <p class="ui-note">النسخة محفوظة. التهكير يشتغل من غير إنترنت</p>
-            <div class="ui-meter"><i></i></div>
-            <div class="ui-row"><span>Chain</span><b>psfree + lapse</b></div>
-          </article>
-
-          <article class="frame">
-            <div class="ui-top"><span>PS4JB</span><span>Success</span></div>
-            <div class="ui-ok">GoldHEN loaded</div>
-            <div class="ui-row"><span>FTP</span><b>2121</b></div>
-            <div class="ui-row"><span>BinLoader</span><b>9090</b></div>
-            <div class="ui-row"><span>Klog</span><b>3232</b></div>
-            <a class="ui-action" href="jb/index.html">افتح المحرك ←</a>
-          </article>
-
-        </div>
-      </div>
-
-      <p class="hero-support">
-        المحرك اتثبّت جوه الموقع نفسه. افتح الرابط على السوني — الصفحة تتعرف على النسخة،
-        تجهّز الكاش، وتشغّل السلسلة المناسبة. مفيش تحويل لموقع تاني.
-      </p>
-      <div class="reel-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+    <div class="panel" data-ui aria-label="حالة المحرك">
+      <div class="panel-head"><span>PS4JB</span><span>detected</span></div>
+      <div class="panel-row"><span>Firmware</span><b id="heroFw">9.00</b></div>
+      <div class="panel-row"><span>Chain</span><b id="heroChain">psfree</b></div>
+      <div class="panel-row"><span>Cache</span><b>ready</b></div>
+      <div class="panel-row"><span>GoldHEN</span><b>loaded</b></div>
+      <p class="panel-note">بعد أول تحميل، الكاش يفضل على الجهاز والسلسلة تشتغل من غير إنترنت.</p>
     </div>
   </section>
 
-  <!-- Firmware list -->
-  <section class="section section--list" id="firmwares" aria-labelledby="fw-title">
-    <div class="section-head">
-      <h2 id="fw-title">كل النسخات<br><span>من 6.00 إلى 13.52</span></h2>
-      <a class="btn btn--accent" href="jb/index.html">فعّل دلوقتي</a>
-    </div>
-
-    <div class="agenda">
-      <div class="era-tabs" id="eraTabs" role="group" aria-label="اختر عائلة النسخة"></div>
-      <div class="bands" id="bands" role="list"></div>
-    </div>
-
-    <div class="selection" data-ui>
-      <div>
-        <span class="ui-label">النسخة المختارة</span>
-        <strong id="selRange">9.00</strong>
-      </div>
-      <div class="sel-chain">
-        <span class="ui-label">السلسلة اللي هتشتغل</span>
-        <strong id="selChain">psfree + lapse + GoldHEN</strong>
-      </div>
-      <a class="btn btn--accent" id="selAction" href="jb/index.html?chain=psfree">فعّل هذه النسخة</a>
-    </div>
-
-    <figure class="figure figure--wide">
-      <img src="assets/ps4-console-wds4.jpg" width="1920" height="960" alt="جهاز السوني 4 بجانب يده التحكم" loading="lazy" decoding="async">
-      <figcaption>الصورة للجهاز نفسه. المحرك بيشتغل داخل متصفح الجهاز، مش على الكمبيوتر.</figcaption>
-    </figure>
-  </section>
-
-  <!-- Preparation: pinned fragment -->
-  <section class="section section--steps" id="steps" aria-labelledby="steps-title">
-    <div class="steps-pin">
-      <div class="steps-frame" data-ui>
-        <div class="ui-top"><span id="stepTag">التحضير</span><span>Prepare</span></div>
-
-        <div class="step-view is-current" data-view="0">
-          <div class="ui-big">DNS</div>
-          <div class="ui-row"><span>Primary</span><b>165.227.83.145</b></div>
-          <div class="ui-row"><span>Secondary</span><b>192.241.221.79</b></div>
-          <p class="ui-note">عشان السوني ما ينزّلش تحديث يقفل التهكير.</p>
-        </div>
-
-        <div class="step-view" data-view="1">
-          <div class="ui-big">Browser</div>
-          <div class="ui-row"><span>Cookies</span><b>Clear</b></div>
-          <div class="ui-row"><span>Cache</span><b>Clear</b></div>
-          <p class="ui-note">بعدين أضف الصفحة للمفضلة عشان ترجع لها فوراً.</p>
-        </div>
-
-        <div class="step-view" data-view="2">
-          <div class="ui-big">Activate</div>
-          <div class="ui-row"><span>Open</span><b>jb/index.html</b></div>
-          <div class="ui-row"><span>Wait</span><b>Cache ready</b></div>
-          <a class="ui-action" href="jb/index.html">اضغط للتفعيل ←</a>
-        </div>
-      </div>
-      <figure class="figure figure--small">
-        <img src="assets/dualshock-4.jpg" width="1920" height="1698" alt="يد تحكم DualShock 4" loading="lazy" decoding="async">
-      </figure>
-    </div>
-
-    <div class="steps-copy">
-      <h2 id="steps-title">جهّز الجهاز<br>قبل التفعيل</h2>
-
-      <article class="step" data-step="0">
-        <h3>اقفل التحديث</h3>
-        <p>من إعدادات الشبكة اختار DNS يدوي وادخل الرقمين دول. لو السوني عرّف يتصل بالإنترنت عادي بعد كده، التحديث هيقفل سلسلة التهكير.</p>
-      </article>
-
-      <article class="step" data-step="1">
-        <h3>نضّف المتصفح</h3>
-        <p>افتح متصفح السوني، امسح الكوكيز والكاش من قائمة الخيارات، وبعدين ضيف رابط الموقع للمفضلة. أول مرة هتاخد شوية وقت عشان الكاش يتحفظ.</p>
-      </article>
-
-      <article class="step" data-step="2">
-        <h3>افتح واضغط تفعيل</h3>
-        <p>على السوني نفسو افتح الرابط، هيتحوّل تلقائياً للمحرك الموجود جوه الموقع. استنى كلمة Cache ready، وبعدها السلسلة تشتغل لوحدها. لو فشلت، أعد تشغيل الجهاز وجرّب تاني.</p>
-      </article>
+  <section class="block" id="firmwares" aria-labelledby="fw-title">
+    <h2 id="fw-title">النسخات</h2>
+    <p class="intro">اختار نسخة جهازك. الرابط بيتحدّث قبل ما تفتح المحرك.</p>
+    <div id="groups"></div>
+    <div class="activate-line">
+      <span class="chosen">المختارة: <b id="selRange">9.00</b> · <span id="selChain">PSFree + Lapse</span></span>
+      <a class="btn btn--small" id="selAction" href="jb/index.html?chain=psfree">فعّل هذه النسخة</a>
     </div>
   </section>
 
-  <!-- Engine / proof -->
-  <section class="section section--engine" id="engine" aria-labelledby="engine-title">
-    <div class="engine-intro">
-      <h2 id="engine-title">المحرك مش رابط<br>المحرك ملفات عندك</h2>
-      <p>
-        مجلد <span class="filename">jb/</span> جوه الريبو فيه نسخة كاملة من هوست مفتوح المصدر يشغّل التهكير من متصفح السوني.
-        الملفات الأصلية والبايلودات موجودة جنب بعض، والكود متروك كما هو عشان يشتغل زي ما صاحبه عمله.
-      </p>
-      <p class="licence">
-        المحرك تحت رخصة AGPL-3.0 من تطوير
-        <a href="https://github.com/X-F1REBALL-X" target="_blank" rel="noopener">X-F1REBALL-X</a>.
-        النسخة الأصلية والرخصة والـ NOTICE موجودة داخل <code>jb/</code> كما هي.
-      </p>
-    </div>
-
-    <div class="filelist" data-ui>
-      <div>jb/</div>
-      <div>├── core.js          نواة الاستغلال</div>
-      <div>├── jb.js            السلاسل والبايلودات</div>
-      <div>├── mem.js           قراءة وكتابة الذاكرة</div>
-      <div>├── ps4_offsets.js   أوفستات النسخ</div>
-      <div>├── device.js        كشف النسخة</div>
-      <div>├── goldhen.bin      مُفعّل الهوم برو</div>
-      <div>├── hen.bin          HEN</div>
-      <div>├── ps4debug.bin     بايلود المطوّر</div>
-      <div>├── LICENSE          AGPL-3.0</div>
-      <div>└── NOTICE           حقوق المؤلف</div>
-    </div>
-
-    <figure class="figure figure--tall">
-      <img src="assets/sony-playstation-4-ps4-console-br.jpg" width="1920" height="1315" alt="الجزء الخلفي لجهاز السوني 4 ومنافذه" loading="lazy" decoding="async">
-    </figure>
+  <section class="block" id="steps" aria-labelledby="steps-title">
+    <h2 id="steps-title">قبل ما تبدأ</h2>
+    <dl class="notes">
+      <div><dt>التحديث</dt><dd>ادخل DNS يدوي: <span class="latin">165.227.83.145</span> و<span class="latin">192.241.221.79</span> عشان الجهاز ما ينزّلش تحديث يقفل السلسلة.</dd></div>
+      <div><dt>المتصفح</dt><dd>امسح الكوكيز والكاش، وضيف الرابط للمفضلة. أول تشغيل هياخد وقت لحد ما الكاش يتحفظ.</dd></div>
+      <div><dt>التفعيل</dt><dd>افتح الرابط من متصفح السوني. استنى <span class="latin">Cache ready</span>، وبعدها السلسلة تشتغل لوحدها.</dd></div>
+    </dl>
   </section>
 
-  <!-- FAQ -->
-  <section class="section section--faq" id="faq" aria-labelledby="faq-title">
-    <h2 id="faq-title">أسئلة تتكرر</h2>
-
-    <div class="faq-list">
-      <article class="faq">
-        <h3>لازم كابل USB أو كمبيوتر؟</h3>
-        <p>لا. المحرك بيشتغل من متصفح السوني نفسه. النسخ اللي تعتمد على PPPwn استخدمت كابل شبكة في الأبحاث الأصلية، بس السلسلة المدمجة هنا بتشتغل من المتصفح.</p>
-      </article>
-      <article class="faq">
-        <h3>جهازي نسخة 5.05، ينفع؟</h3>
-        <p>المحرك المدمج يبدأ من 6.00. للنسخ الأقدم فيه هوستات عامة منفصلة، ودى مش جزء من الملفات المستضافة هنا لأن رخصتها غير واضحة.</p>
-      </article>
-      <article class="faq">
-        <h3>هركب GoldHEN إصدار إيه؟</h3>
-        <p>الملفات الموجودة داخل المحرك هي <span class="filename">goldhen.bin</span> و<span class="filename">hen.bin</span>. الإصدار اللي بيتحمل هو اللي في ملفات المحرك، مش ملف تاني جاي من خارج الريبو.</p>
-      </article>
-      <article class="faq">
-        <h3>فيه خطر؟</h3>
-        <p>الأكيد إن الدخول بـ PSN على جهاز عليه HEN قد يؤدي لحظر الحساب. استخدم حساب منفصل، واعمل نسخة احتياطية من بياناتك قبل أي تعديل. الموقع معلوماتي والاستخدام على مسؤوليتك.</p>
-      </article>
-    </div>
-
-    <figure class="figure figure--wide figure--last">
-      <img src="assets/sony-playstation4-pro-console-fl.png" width="1920" height="1170" alt="جهاز السوني 4 برو من الأمام" loading="lazy" decoding="async">
-    </figure>
+  <section class="block" id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">أسئلة قصيرة</h2>
+    <dl class="notes">
+      <div><dt>جهازي 5.05؟</dt><dd>المحرك يبدأ من 6.00. النسخ الأقدم لها هوستات تانية مش مضمونة الرخصة هنا.</dd></div>
+      <div><dt>كابل أو كمبيوتر؟</dt><dd>لا. المحرك بيشتغل من متصفح السوني نفسه.</dd></div>
+      <div><dt>فيه خطر؟</dt><dd>الـ PSN على جهاز عليه HEN ممكن يؤدي لحظر الحساب. اعمل نسخة احتياطية واستخدم حساب منفصل.</dd></div>
+    </dl>
   </section>
 
 </main>
 
-<footer class="site-foot">
-  <p class="foot-wordmark">المصري للعالميه</p>
-  <p class="foot-note">محرك التهكير: <a href="https://github.com/X-F1REBALL-X/ps4jb" target="_blank" rel="noopener">X-F1REBALL-X/ps4jb</a>، AGPL-3.0. كل الحقوق لأصحاب المشاريع الأصلية.</p>
-  <p class="credits">Pictures: <a href="https://commons.wikimedia.org/wiki/File:PS4-Console-wDS4.jpg">“PS4-Console-wDS4”</a>, <a href="https://commons.wikimedia.org/wiki/File:Sony-PlayStation-4-PS4-Console-BR.jpg">“Sony-PlayStation-4-PS4-Console-BR”</a>, <a href="https://commons.wikimedia.org/wiki/File:DualShock_4.jpg">“DualShock 4”</a> and <a href="https://commons.wikimedia.org/wiki/File:Sony-PlayStation4-Pro-Console-FL.png">“Sony-PlayStation4-Pro-Console-FL”</a> by Evan-Amos, <a href="https://creativecommons.org/publicdomain/mark/1.0/">public domain</a>, via Wikimedia Commons.</p>
+<footer class="foot">
+  <p>المصري للعالميه · محرك <a href="https://github.com/X-F1REBALL-X/ps4jb" target="_blank" rel="noopener">X-F1REBALL-X/ps4jb</a> تحت AGPL-3.0 · صورة DualShock 4: Evan-Amos، مجال عام، Wikimedia Commons.</p>
 </footer>
 
 <script src="data.js"></script>

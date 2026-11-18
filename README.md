@@ -50,8 +50,8 @@ python -m http.server 8000
 محرك `jb/` نسخة كاملة وغير معدّلة من مشروع
 [X-F1REBALL-X/ps4jb](https://github.com/X-F1REBALL-X/ps4jb)
 تحت رخصة **AGPL-3.0**. ملفات `LICENSE` و`NOTICE` الأصلية موجودة داخل المجلد.
-صور الجهاز وأداة التحكم من Wikimedia Commons، وصاحبه Evan-Amos، تحت المجال العام؛
-الاعتمادات مدوّنة في `assets/credits.json` وفي تذييل الصفحة.
+صورة أداة التحكم من Wikimedia Commons، وصاحبها Evan-Amos، تحت المجال العام؛
+الاعتماد مدوّن في `assets/credits.json` وفي تذييل الصفحة.
 
 الشكر كمان لأصحاب الأبحاث اللي بنت عليها السلاسل: SiSTRo (GoldHEN)، ChendoChap،
 abc، sleirsgoevy، TheFloW وAl-Azif.
