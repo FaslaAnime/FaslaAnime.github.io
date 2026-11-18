@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# masry-dev-host-7
+# masry-dev-host-8
 
 CACHE:
 ag/afterglow.js
@@ -116,11 +116,15 @@ jb/slopkit/core.js
 jb/slopkit/index.html
 jb/slopkit/int64.js
 jb/slopkit/mem.js
+jb/slopkit/patches/1000.bin
+jb/slopkit/patches/1050.bin
 jb/slopkit/patches/1100.bin
+jb/slopkit/patches/1102.bin
 jb/slopkit/patches/1150.bin
 jb/slopkit/patches/1200.bin
 jb/slopkit/patches/1250.bin
 jb/slopkit/patches/1300.bin
+jb/slopkit/patches/950.bin
 jb/slopkit/payload.bin
 jb/slopkit/ps4_offsets.js
 jb/slopkit/rpc_worker.js
