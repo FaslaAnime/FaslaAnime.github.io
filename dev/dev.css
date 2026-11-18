@@ -115,8 +115,14 @@ select {
   cursor: pointer;
 }
 .btn:hover { background: #d9b46a; }
-.secondary { background: var(--surface); color: var(--ink); }
-.secondary:hover { background: #242019; }
+.btn:disabled { background: var(--surface); color: var(--muted); cursor: default; }
+.progress { margin-top: 16px; background: var(--bg); border-radius: var(--radius); padding: 14px; }
+.progress[hidden] { display: none; }
+.progress-head { display: flex; justify-content: space-between; gap: 16px; font-size: var(--small); }
+.progress-head b { color: var(--accent); font-weight: 600; }
+.progress-track { margin-top: 10px; height: 8px; background: var(--surface); border-radius: 4px; overflow: hidden; }
+.progress-fill { height: 100%; width: 0%; background: var(--accent); border-radius: 4px; transition: width 120ms linear; }
+.progress-note { margin-top: 8px; font-size: var(--small); color: var(--muted); }
 .log {
   margin-top: 16px;
   background: var(--bg);

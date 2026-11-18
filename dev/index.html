@@ -29,8 +29,12 @@
   <p class="lead">واجهة أصلية مكتوبة هنا، بتشغّل كل السلاسل المخزّنة جوه الموقع. مفيش هوست خارجي ولا رابط لشخص تاني.</p>
   <p class="warn">التفعيل الفعلي محتاج تجربة على PS4 حقيقي. استخدم حساب منفصل ونسخة احتياطية قبل أي تفعيل.</p>
   <div class="actions">
-    <button class="btn" id="startBtn" type="button">ابدأ التفعيل</button>
-    <button class="btn secondary" id="cacheBtn" type="button">جهّز الكاش وابدأ</button>
+    <button class="btn" id="startBtn" type="button">فعّل التهكير</button>
+  </div>
+  <div class="progress" id="progress" hidden>
+    <div class="progress-head"><span id="progressLabel">جارٍ تجهيز الكاش…</span><b id="progressPct" dir="ltr">0%</b></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <p class="progress-note" id="progressNote">…</p>
   </div>
   <pre class="log" id="log" aria-live="polite">جاهز.</pre>
 
