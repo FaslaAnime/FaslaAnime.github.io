@@ -47,9 +47,8 @@ python -m http.server 8000
 
 ## الحقوق والترخيص
 
-محرك `jb/` نسخة كاملة وغير معدّلة من مشروع
-[X-F1REBALL-X/ps4jb](https://github.com/X-F1REBALL-X/ps4jb)
-تحت رخصة **AGPL-3.0**. ملفات `LICENSE` و`NOTICE` الأصلية موجودة داخل المجلد.
+محرك `jb/` نسخة كاملة وغير معدّلة من مشروع مفتوح المصدر تحت رخصة **AGPL-3.0**.
+ملفات `LICENSE` و`NOTICE` الأصلية موجودة داخل المجلد.
 صورة أداة التحكم من Wikimedia Commons، وصاحبها Evan-Amos، تحت المجال العام؛
 الاعتماد مدوّن في `assets/credits.json` وفي تذييل الصفحة.
 
