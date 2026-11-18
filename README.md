@@ -45,6 +45,9 @@ python -m http.server 8000
 منشور على GitHub Pages: `https://faslaanime.github.io/`
 وصفحة المحرك: `https://faslaanime.github.io/jb/index.html`
 
+هوست بديل مفتوح المصدر وحديث: [WebKitty](https://webkitty.arabpixel.net/)
+(المرآة: `https://arabpixel.gitlab.io/WebKitty/`)، مذكور في الصفحة كخيار إضافي من غير ما يحل محل المحرك المدمج.
+
 ## الحقوق والترخيص
 
 محرك `jb/` نسخة كاملة وغير معدّلة من مشروع مفتوح المصدر تحت رخصة **AGPL-3.0**.
