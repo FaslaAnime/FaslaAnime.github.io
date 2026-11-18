@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تحت التطوير | مصري / Masry</title>
+<meta name="description" content="هوست تجريبي جديد مبني من الصفر داخل موقع مصري، يستخدم ملفات المحرك المحلية دون أي هوست خارجي.">
+<meta name="theme-color" content="#0c0a08">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dev.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="../index.html">مصري <span class="brand-latin">Masry</span></a>
+  <a class="toplink" href="../index.html">الرئيسية ←</a>
+</header>
+
+<main class="column">
+  <h1>هوست جديد تحت التطوير</h1>
+  <p class="lead">واجهة أصلية مكتوبة هنا، بتشغّل نفس ملفات المحرك المخزّنة جوه الموقع. مفيش هوست خارجي ولا رابط لشخص تاني.</p>
+  <p class="warn">النسخة دي تجريبية، لسه ما اتجربتش على PS4 حقيقي، فالنتائج غير مضمونة. استخدم حساب منفصل ونسخة احتياطية قبل أي تفعيل.</p>
+  <button class="btn" id="startBtn" type="button">ابدأ التفعيل التجريبي</button>
+  <pre class="log" id="log" aria-live="polite">جاهز.</pre>
+
+  <section class="panel" data-ui aria-label="كشف الجهاز والنسخة">
+    <div class="panel-head"><span>الفحص</span><span>تجريبي</span></div>
+    <div class="panel-row"><span>الجهاز</span><b id="devDevice">…</b></div>
+    <div class="panel-row"><span>النسخة المكتشفة</span><b id="devFw" dir="ltr">…</b></div>
+    <div class="panel-row"><span>السلسلة المقترحة</span><b id="devChain" dir="ltr">…</b></div>
+    <div class="panel-row"><span>الحالة</span><b id="devState">…</b></div>
+  </section>
+
+  <section class="block" aria-labelledby="pick-title">
+    <h2 id="pick-title">اختر نسخة الجهاز</h2>
+    <p class="intro">لو الكشف التلقائي ما شافش النسخة، اختارها بإيدك من القائمة.</p>
+    <label class="field">
+      <span>النسخة</span>
+      <select id="fwSelect"></select>
+    </label>
+    <p class="chain-note" id="chainNote">…</p>
+  </section>
+
+  <section class="block" aria-labelledby="about-title">
+    <h2 id="about-title">عن هذه الواجهة</h2>
+    <p class="intro">الكود والشكل هنا مكتوبين من الصفر لهذا الموقع. ملفات الاستغلال والبايلودات نفسها بحث وتطوير ناس تانية، تحت رخصة <span class="latin">AGPL-3.0</span>، ومخزّنة محلياً في <code>jb/</code>.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>مصري / Masry · واجهة تحت التطوير · المحرك الأصلي تحت AGPL-3.0.</p>
+  <p class="rights">© 2026 Mohamed_0_9 · مصري / Masry.</p>
+</footer>
+
+<script src="dev.js"></script>
+</body>
+</html>

@@ -116,6 +116,7 @@ h1 {
 .block { padding-block: 32px; }
 .block h2 { font-size: var(--head); font-weight: 600; letter-spacing: -0.01em; }
 .intro { margin-top: 8px; color: var(--muted); font-size: var(--small); }
+.block .textlink { display: inline-block; margin-top: 14px; }
 
 /* Firmware list: two-ended rows, no boxes, no rules. */
 .group { margin-top: 32px; }
