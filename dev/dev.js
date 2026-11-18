@@ -89,19 +89,52 @@
     noteEl.textContent = option.chainName + "، " + option.note;
   }
 
+  var AC = window.applicationCache;
+
+  function cacheLabel(status) {
+    if (!AC) return "الكاش غير مدعوم في المتصفح ده";
+    if (status === AC.UNCACHED) return "لم يُجهّز بعد";
+    if (status === AC.IDLE) return "مُجهّز ومحفوظ على الجهاز";
+    if (status === AC.CHECKING) return "جارٍ فحص التحديثات…";
+    if (status === AC.DOWNLOADING) return "جارٍ التحميل…";
+    if (status === AC.UPDATEREADY) return "تحديث جاهز للتثبيت";
+    if (status === AC.OBSOLETE) return "الكاش غير متاح";
+    return "حالة غير معروفة (" + status + ")";
+  }
+
+  function refreshCache() {
+    cacheEl.textContent = cacheLabel(AC ? AC.status : null);
+  }
+
+  function refreshState() {
+    if (!detected.isPs4) {
+      stateEl.textContent = "متصفح عادي، شغّله من PS4";
+    } else if (!detected.option) {
+      stateEl.textContent = "نسخة غير مدعومة محلياً";
+    } else {
+      stateEl.textContent = "جاهز للتشغيل";
+    }
+  }
+
   deviceEl.textContent = detected.isPs4 ? "PlayStation 4" : "متصفح عادي";
   fwEl.textContent = detected.key || "…";
   if (detected.option) select.value = String(OPTIONS.indexOf(detected.option));
-  stateEl.textContent = detected.isPs4
-    ? (detected.option ? "جاهز للتجربة" : "نسخة غير مدعومة بالخريطة")
-    : "للعرض فقط";
-  cacheEl.textContent = detected.isPs4 ? "ينصح بالتجهيز أول مرة" : "للعرض فقط";
+  refreshState();
+  refreshCache();
   update();
+
+  if (AC) {
+    ["checking", "downloading", "progress", "cached",
+      "updateready", "noupdate", "obsolete", "error"].forEach(function (evt) {
+      AC.addEventListener(evt, refreshCache, false);
+    });
+  }
 
   select.addEventListener("change", update);
 
   cacheBtn.addEventListener("click", function () {
     logEl.textContent = "جارٍ تجهيز كاش المحرك المحلي...\n" +
+      "كاش الهوست: " + cacheLabel(AC ? AC.status : null) + "\n" +
       "كل الملفات والبايلودات بتتحفظ على الجهاز قبل التشغيل.";
     // The engine's own primer caches every asset, then hands off to the engine.
     window.location.href = "../jb/cache.html";

@@ -7,7 +7,7 @@
 https://github.com/ArabPixel/WebKitty
 
 الصفحتان `index.html` و`run.html` والملف `bridge.js` مكتوبين من الصفر لهذا الموقع،
-وهم واجهة هوست مخصّصة باسم مصري / Masry تحت التطوير. الـ bridge بيوفّر بس
+وهم واجهة الهوست الأساسي لمصري / Masry. الـ bridge بيوفّر بس
 الدوال الصغيرة اللي السلسلة بتتوقعها من هوست WebKitty (`log`، `getScript`،
 `getPs4FwVersion`، `storage`) ومبيغيّر أي سطر في ملفات السلسلة نفسها.
 
