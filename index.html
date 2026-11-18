@@ -6,14 +6,12 @@
 <title>مصري | Masry — تفعيل الجولد هين من متصفح السوني 4</title>
 <meta name="description" content="مصري (Masry): محرك تهكير سوني 4 مستضاف داخل الموقع. افتح الرابط على متصفح السوني ويتفعل GoldHEN من 6.00 حتى 13.52.">
 <meta name="theme-color" content="#0c0a08">
-<script>
-(function () {
-  var ua = navigator.userAgent || "";
-  if (/PlayStation 4/i.test(ua) && !/[?&]portal=1/.test(location.search)) {
-    location.replace("jb/index.html" + location.search);
-  }
-})();
-</script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'">
+<script src="redirect.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
@@ -74,6 +72,7 @@
 
 <footer class="foot">
   <p>مصري / Masry · محرك مفتوح المصدر تحت AGPL-3.0 · صورة DualShock 4: Evan-Amos، مجال عام، Wikimedia Commons.</p>
+  <p class="rights">© 2026 Mohamed_0_9 — مصري / Masry · تصميم ومحتوى البوابة.</p>
 </footer>
 
 <script src="data.js"></script>

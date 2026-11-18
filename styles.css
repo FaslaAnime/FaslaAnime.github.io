@@ -163,6 +163,7 @@ h1 {
   font-size: var(--small);
 }
 .foot a { color: var(--accent); text-decoration: none; }
+.rights { margin-top: 6px; }
 
 /* One restrained fade, once per element. No scroll-linked or looping motion. */
 .quiet-in { opacity: 0; transition: opacity 300ms linear; }
