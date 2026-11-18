@@ -118,4 +118,4 @@ AGPL-3.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE). The WebKitty chain licens
 - **EchoStretch**: hosts / tools
 - **Nomadic**: update-blocking DNS
 
-Developed by [X-F1REBALL-X](https://github.com/X-F1REBALL-X).
+Developed by X-F1REBALL-X.

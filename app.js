@@ -16,7 +16,7 @@
         '<img src="assets/dualshock-4.jpg" width="16" height="16" alt="" aria-hidden="true" loading="lazy">' +
         "<span>" + era.label + "</span></div>" +
         rows.map(function (entry) {
-          return '<a class="row" href="jb/index.html?chain=' + entry.item.chain +
+          return '<a class="row" href="dev/index.html?chain=' + entry.item.chain +
             '" data-index="' + entry.index + '" aria-label="تفعيل ' + entry.item.range + '">' +
             '<span class="row-main">' +
             '<span class="row-range">' + entry.item.range + "</span>" +

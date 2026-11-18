@@ -2,7 +2,7 @@
   --bg: #0c0a08;
   --surface: #161310;
   --ink: #f3f3ef;
-  --muted: #a39c92;
+  --muted: #b8b1a7;
   --accent: #c9a45a;
   --radius: 4px;
   --arabic: Tahoma, "Segoe UI", sans-serif;
@@ -55,6 +55,7 @@ h1 { font-size: 40px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.
 }
 .ram { margin-top: 10px; color: var(--ink); font-size: 16px; }
 .notice { margin-top: 12px; padding: 10px 12px; border-radius: var(--radius); background: #35201c; color: #f0c4b8; font-size: 14px; }
+.notice:empty { display: none; }
 .action {
   display: inline-flex;
   align-items: center;

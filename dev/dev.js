@@ -10,6 +10,8 @@
   var OPTIONS = [
     { fw: "4.50", label: "4.50 – 5.07", chain: "bpf", chainName: "BPF Double Free",
       min: 450, max: 507, note: "أقدم سلسلة محلية، مخصّصة للنسخ القديمة." },
+    { fw: "9.00", label: "9.00 / 9.60", chain: "psfree", chainName: "PSFree + Lapse",
+      only: [900, 960], note: "النسخة الذهبية والنسخة 9.60." },
     { fw: "6.00", label: "6.00 – 6.69", chain: "cssfontface", chainName: "CSSFontFace + Lapse",
       min: 600, max: 669, note: "أول نطاق يبدأ به المحرك المدمج." },
     { fw: "6.70", label: "6.70 – 6.72", chain: "badhoist", chainName: "BadHoist",
@@ -125,6 +127,15 @@
   deviceEl.textContent = detected.isPs4 ? "PlayStation 4" : "متصفح عادي";
   fwEl.textContent = detected.key || "…";
   if (detected.option) select.value = String(OPTIONS.indexOf(detected.option));
+
+  // A portal row can preselect a chain with ?chain=. The activation button
+  // still performs the cache warm-up before handing off.
+  var forced = new URLSearchParams(location.search).get("chain");
+  if (forced) {
+    for (var c = 0; c < OPTIONS.length; c++) {
+      if (OPTIONS[c].chain === forced) { select.value = String(c); break; }
+    }
+  }
   refreshState();
   refreshCache();
   update();
@@ -158,9 +169,16 @@
     "bpf/hen.bin", "bpf/goldhen.bin"
   ];
   var JB_FALLBACK = [
-    "../jb/index.html", "../jb/core.js", "../jb/jb.js", "../jb/mem.js",
-    "../jb/int64.js", "../jb/ps4_offsets.js", "../jb/rpc_worker.js",
-    "../jb/hen.bin", "../jb/goldhen.bin", "../jb/ps4debug.bin"
+    "jb/bridge.js",
+    "jb/relapse/index.html", "jb/relapse/jb.js", "jb/relapse/core.js",
+    "jb/relapse/mem.js", "jb/relapse/int64.js", "jb/relapse/ps4_offsets.js",
+    "jb/relapse/hen.bin", "jb/relapse/goldhen.bin", "jb/relapse/ps4debug.bin",
+    "jb/cssfontface/index.html", "jb/cssfontface/main.js",
+    "jb/cssfontface/payload.bin",
+    "jb/slopkit/index.html", "jb/slopkit/chain_lapse.js",
+    "jb/slopkit/chain_poops.js", "jb/slopkit/payload.bin",
+    "jb/psfree/index.html", "jb/psfree/bundle.js", "jb/psfree/payload.bin",
+    "jb/badhoist/index.html"
   ];
 
   function parseManifest(text) {
@@ -206,8 +224,11 @@
     if (option.chain === "bpf") {
       return "./bpf/index.html?fw=" + encodeURIComponent(fw) + "&payload=hen";
     }
-    return "../jb/index.html?chain=" + encodeURIComponent(option.chain) +
-      "&fw=" + encodeURIComponent(fw);
+    // Every chain now lives behind a Masry page inside dev/, exactly like
+    // Afterglow and BPF. The unchanged chain files sit beside that page.
+    var payload = option.chain === "relapse" && fw !== "13.52" ? "hen" : "goldhen";
+    return "./jb/" + encodeURIComponent(option.chain) + "/index.html?fw=" +
+      encodeURIComponent(fw) + "&payload=" + payload;
   }
 
   // Fetch every asset before handing off. XHR progress gives a real byte
@@ -293,15 +314,12 @@
       cacheEl.textContent = pct < 100 ? "جارٍ التحميل " + pct + "%" : "مُجهّز ومحفوظ على الجهاز";
     }
 
-    Promise.all([
-      readManifest("dev.appcache", "", DEV_FALLBACK),
-      option.chain === "bpf" || option.chain === "afterglow"
-        ? Promise.resolve([])
-        : readManifest("../jb/cache.appcache", "../jb/", JB_FALLBACK)
-    ]).then(function (lists) {
+    // One manifest is now the single source of truth: every chain file is
+    // vendored under dev/, so there is no second host and no second list.
+    readManifest("dev.appcache", "", DEV_FALLBACK).then(function (listed) {
       var seen = {};
       var files = [];
-      lists[0].concat(lists[1]).forEach(function (f) {
+      listed.concat(JB_FALLBACK).forEach(function (f) {
         if (!seen[f]) { seen[f] = 1; files.push(f); }
       });
       logEl.textContent += "\nملفات الكاش: " + files.length;
