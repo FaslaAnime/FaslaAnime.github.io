@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" manifest="../dev.appcache">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تحت التطوير | مصري / Masry BPF</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'">
+<link rel="stylesheet" href="../ag/ag.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="../index.html">مصري <span class="latin">Masry</span></a>
+  <a class="toplink" href="../index.html">الرئيسية ←</a>
+</header>
+
+<main class="column">
+  <h1>هوست مصري لسلسلة BPF</h1>
+  <p class="lead">السلسلة شغّالة دلوقتي. سيب الصفحة مفتوحة لحد ما تظهر نتيجة التفعيل.</p>
+  <p class="warn">تجريبية. لسه ما اتجربتش على PS4 حقيقي، والنتائج غير مضمونة.</p>
+  <a class="action" href="../index.html">غيّر النسخة أو البايلود</a>
+
+  <div class="readout">
+    <div><span>النسخة</span><b id="agFw" dir="ltr">من الجهاز</b></div>
+    <div><span>البايلود</span><b id="agPayload">PS4HEN</b></div>
+  </div>
+
+  <div id="state" class="state">جارٍ تشغيل السلسلة…</div>
+  <pre id="console" class="console">في انتظار السلسلة…</pre>
+  <div id="out"></div>
+</main>
+
+<script src="./bridge.js"></script>
+</body>
+</html>

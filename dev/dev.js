@@ -8,6 +8,8 @@
 
   // Chain mapping mirrors the local engine's own routing table (jb/index.html).
   var OPTIONS = [
+    { fw: "4.50", label: "4.50 – 5.07", chain: "bpf", chainName: "BPF Double Free",
+      min: 450, max: 507, note: "أقدم سلسلة محلية، مخصّصة للنسخ القديمة." },
     { fw: "6.00", label: "6.00 – 6.69", chain: "cssfontface", chainName: "CSSFontFace + Lapse",
       min: 600, max: 669, note: "أول نطاق يبدأ به المحرك المدمج." },
     { fw: "6.70", label: "6.70 – 6.72", chain: "badhoist", chainName: "BadHoist",
@@ -19,7 +21,11 @@
     { fw: "12.50", label: "12.50 – 13.00", chain: "slopkit", chainName: "Slopkit Netctrl",
       min: 1250, max: 1300, note: "يعتمد على أبحاث TheFloW." },
     { fw: "13.02", label: "13.02 / 13.04 / 13.50 / 13.52", chain: "relapse", chainName: "Slopkit Relapse",
-      only: [1302, 1304, 1350, 1352], note: "السلسلة المُثبتة على النسخ الأحدث." }
+      only: [1302, 1304, 1350, 1352], note: "السلسلة المُثبتة على النسخ الأحدث." },
+    { fw: "14.00", label: "14.00", chain: "afterglow", chainName: "Slopkit Afterglow",
+      only: [1400], note: "سلسلة Afterglow مخزّنة محلياً بواجهة مصري." },
+    { fw: "14.02", label: "14.02", chain: "afterglow", chainName: "Slopkit Afterglow",
+      only: [1402], note: "أحدث نسخة مدعومة بالسلسلة المحلية." }
   ];
 
   var deviceEl = document.getElementById("devDevice");
@@ -105,9 +111,22 @@
     var option = current();
     var fw = detected.option === option && detected.key ? detected.key : option.fw;
     logEl.textContent =
-      "جارٍ تحضير المحرك المحلي...\n" +
+      "جارٍ التحضير...\n" +
       "النسخة: " + fw + "\n" +
       "السلسلة: " + option.chainName;
+
+    if (option.chain === "afterglow") {
+      window.location.href = "./ag/index.html?fw=" +
+        encodeURIComponent(fw) + "&payload=goldhen";
+      return;
+    }
+
+    if (option.chain === "bpf") {
+      window.location.href = "./bpf/index.html?fw=" +
+        encodeURIComponent(fw) + "&payload=hen";
+      return;
+    }
+
     window.location.href = "../jb/index.html?chain=" +
       encodeURIComponent(option.chain) + "&fw=" + encodeURIComponent(fw);
   });
