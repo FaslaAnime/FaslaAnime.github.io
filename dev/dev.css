@@ -10,7 +10,9 @@
   --lead: 20px;
   --head: 28px;
   --display: 40px;
-  --arabic: "IBM Plex Sans Arabic", sans-serif;
+  /* System font only. A web-font request through the PS4 DNS makes the page
+     stall and is the main reason for the "not responding" prompt. */
+  --arabic: Tahoma, "Segoe UI", Arial, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -26,7 +28,9 @@ body {
 }
 a { color: inherit; }
 h1, h2, p { margin: 0; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+/* Controller navigation sets a real focus ring, not :focus-visible only. */
+:focus { outline: 3px solid var(--accent); outline-offset: 4px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .latin { direction: ltr; unicode-bidi: isolate; }
 code { font-family: ui-monospace, monospace; direction: ltr; unicode-bidi: isolate; color: var(--accent); }
 
@@ -94,13 +98,23 @@ h1 {
 }
 select {
   font-family: inherit;
-  font-size: var(--body);
+  font-size: 20px;
+  min-height: 52px;
   color: var(--ink);
   background: var(--surface);
   border: 0;
   border-radius: var(--radius);
   padding: 10px 12px;
 }
+.hint {
+  margin-top: 14px;
+  font-size: var(--small);
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+}
+.hint b { color: var(--ink); font-weight: 600; }
 .chain-note { margin-top: 14px; font-size: var(--small); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 .btn {
@@ -108,12 +122,14 @@ select {
   color: var(--bg);
   border: 0;
   border-radius: var(--radius);
-  padding: 12px 18px;
+  min-height: 54px;
+  padding: 12px 24px;
   font-family: inherit;
-  font-size: var(--small);
+  font-size: 20px;
   font-weight: 600;
   cursor: pointer;
 }
+.btn:focus { outline: 3px solid #fff; outline-offset: 4px; }
 .btn:hover { background: #d9b46a; }
 .btn:disabled { background: var(--surface); color: var(--muted); cursor: default; }
 .progress { margin-top: 16px; background: var(--bg); border-radius: var(--radius); padding: 14px; }

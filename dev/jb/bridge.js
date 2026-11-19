@@ -94,7 +94,7 @@
     // main.js is a classic script loaded before this one; it only defines the
     // entry point, so the call belongs here after our storage is in place.
     if (typeof doCssFontFaceJailbreak === "function") {
-      setState("جارٍ تشغيل السلسلة…");
+      setState("جارٍ تشغيل السلسلة… لو ظهرت رسالة عدم الاستجابة اختار متابعة وانتظر");
       Promise.resolve(doCssFontFaceJailbreak()).then(function () {
         setState("انتهت السلسلة. أغلق المتصفح وأعد فتحه");
         document.body.classList.add("done");
@@ -113,7 +113,7 @@
   if (chain === "psfree") {
     // bundle.js is loaded before this script and only defines the entry point.
     if (typeof doJailBreak === "function") {
-      setState("جارٍ تشغيل السلسلة…");
+      setState("جارٍ تشغيل السلسلة… لو ظهرت رسالة عدم الاستجابة اختار متابعة وانتظر");
       Promise.resolve(doJailBreak()).then(function () {
         setState("انتهت السلسلة. أغلق المتصفح وأعد فتحه");
         document.body.classList.add("done");
@@ -142,7 +142,7 @@
       return;
     }
 
-    setState("جارٍ تشغيل السلسلة…");
+    setState("جارٍ تشغيل السلسلة… لو ظهرت رسالة عدم الاستجابة اختار متابعة وانتظر");
     var kernel = document.createElement("script");
     kernel.src = "./672kexploit.js";
     kernel.onerror = function () {
@@ -183,7 +183,7 @@
 
   // The relapse entry file is a module and runs on import, which happens after
   // this script has finished setting everything up.
-  setState("جارٍ تشغيل السلسلة…");
+  setState("جارٍ تشغيل السلسلة… لو ظهرت رسالة عدم الاستجابة اختار متابعة وانتظر");
 
   if (chain === "slopkit") {
     // Two chain files ship in this folder. Pick the one matching the firmware

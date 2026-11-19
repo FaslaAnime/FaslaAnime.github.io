@@ -30,6 +30,20 @@
       only: [1402], note: "أحدث نسخة مدعومة بالسلسلة المحلية." }
   ];
 
+  // Only the chosen chain is warmed on tap. The full manifest stays in
+  // dev.appcache for offline use, but re-downloading every chain on the PS4
+  // made the page feel heavy and sometimes triggered "page not responding".
+  var SHARED_FILES = ["ag/ag.css"];
+  var CHAIN_FILES = {
+    bpf: ["bpf/"],
+    afterglow: ["ag/"],
+    psfree: ["jb/bridge.js", "jb/psfree/"],
+    cssfontface: ["jb/bridge.js", "jb/cssfontface/"],
+    slopkit: ["jb/bridge.js", "jb/slopkit/"],
+    relapse: ["jb/bridge.js", "jb/relapse/"],
+    badhoist: ["jb/bridge.js", "jb/badhoist/"]
+  };
+
   var deviceEl = document.getElementById("devDevice");
   var fwEl = document.getElementById("devFw");
   var chainEl = document.getElementById("devChain");
@@ -140,6 +154,12 @@
   refreshCache();
   update();
 
+  // On the console the controller starts on the first focusable element.
+  // Put it straight on the activation button so Cross/X is enough to begin.
+  if (detected.isPs4) {
+    setTimeout(function () { try { button.focus(); } catch (e) {} }, 120);
+  }
+
   if (AC) {
     ["checking", "downloading", "progress", "cached",
       "updateready", "noupdate", "obsolete", "error"].forEach(function (evt) {
@@ -243,12 +263,20 @@
       for (var i = 0; i < files.length; i++) frac.push(0);
       var done = 0;
       var next = 0;
-      var limit = Math.min(6, files.length);
+      // The PS4 WebKit browser stalls with too many concurrent requests.
+      var limit = Math.min(detected.isPs4 ? 3 : 6, files.length);
+      var lastPct = -1;
+      var lastDone = -1;
 
       function report() {
         var sum = 0;
         for (var i = 0; i < frac.length; i++) sum += frac[i];
-        onProgress(Math.min(100, Math.round(sum / files.length * 100)), done, files.length);
+        var pct = Math.min(100, Math.round(sum / files.length * 100));
+        // Avoid a DOM write on every progress event: that was part of the lag.
+        if (pct === lastPct && done === lastDone) return;
+        lastPct = pct;
+        lastDone = done;
+        onProgress(pct, done, files.length);
       }
 
       function pump() {
@@ -257,6 +285,7 @@
         try {
           var xhr = new XMLHttpRequest();
           xhr.open("GET", files[idx], true);
+          xhr.timeout = 15000;
           xhr.onprogress = function (e) {
             if (e.lengthComputable && e.total > 0) {
               frac[idx] = Math.min(0.99, e.loaded / e.total);
@@ -315,15 +344,23 @@
       cacheEl.textContent = pct < 100 ? "جارٍ التحميل " + pct + "%" : "مُجهّز ومحفوظ على الجهاز";
     }
 
-    // One manifest is now the single source of truth: every chain file is
-    // vendored under dev/, so there is no second host and no second list.
-    readManifest("dev.appcache", "", DEV_FALLBACK).then(function (listed) {
-      var seen = {};
-      var files = [];
-      listed.concat(JB_FALLBACK).forEach(function (f) {
-        if (!seen[f]) { seen[f] = 1; files.push(f); }
+    // One manifest is the single source of truth, but only the files the
+    // selected chain needs are fetched here. Everything else stays cached by
+    // AppCache for offline use without slowing down this activation.
+    readManifest("dev.appcache", "", DEV_FALLBACK.concat(JB_FALLBACK)).then(function (listed) {
+      var wanted = SHARED_FILES.concat(CHAIN_FILES[option.chain] || []);
+      var files = listed.filter(function (f) {
+        for (var i = 0; i < wanted.length; i++) {
+          if (wanted[i].slice(-1) === "/") {
+            if (f.indexOf(wanted[i]) === 0) return true;
+          } else if (f === wanted[i]) {
+            return true;
+          }
+        }
+        return false;
       });
-      logEl.textContent += "\nملفات الكاش: " + files.length;
+      if (!files.length) files = wanted;
+      logEl.textContent += "\nملفات السلسلة: " + files.length;
       return warm(files, setProgress);
     }).then(function () {
       progressLabel.textContent = "الكاش جاهز، بدء التهكير…";

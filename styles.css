@@ -11,8 +11,10 @@
   --lead: 20px;
   --head: 28px;
   --display: 40px;
-  --arabic: "IBM Plex Sans Arabic", sans-serif;
-  --latin: "Bricolage Grotesque", sans-serif;
+  /* Local faces only: the PS4 browser has no reliable access to web fonts
+     once DNS is pointed at this host, and the extra requests make it stall. */
+  --arabic: Tahoma, "Segoe UI", Arial, sans-serif;
+  --latin: Tahoma, "Segoe UI", Arial, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -29,7 +31,9 @@ body {
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 h1, h2, h3, p, figure, dl, dd, dt { margin: 0; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+/* The PS4 controller moves a hard focus ring, not :focus-visible only. */
+:focus { outline: 3px solid var(--accent); outline-offset: 4px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 ::selection { background: var(--accent); color: var(--accent-ink); }
 
 .latin, .brand, .toplink, .panel, .row-range, .row-meta, .btn, .textlink {
