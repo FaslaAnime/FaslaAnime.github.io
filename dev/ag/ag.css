@@ -34,8 +34,25 @@ h1, p { margin: 0; }
 h1 { font-size: 40px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
 .lead { margin-top: 12px; font-size: 18px; max-width: 60ch; }
 .warn { margin-top: 12px; color: var(--muted); font-size: 16px; border-inline-start: 2px solid var(--accent); padding-inline-start: 12px; max-width: 60ch; }
-.jb-contact { margin-top: 14px; font-size: 14px; color: var(--muted); }
-.jb-contact a { color: var(--accent); text-decoration: none; }
+/* prominent, eye-comfortable contact line — large text, warm contrast, no motion */
+.jb-contact {
+  margin-top: 18px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #241d12;
+  border-inline-start: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  max-width: 60ch;
+}
+.jb-contact a {
+  color: #f0c877;
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: underline;
+}
 .readout { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; font-size: 16px; }
 .readout div { display: flex; gap: 8px; }
 .readout span { color: var(--muted); }

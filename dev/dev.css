@@ -112,8 +112,25 @@ select {
   border-radius: var(--radius);
   padding: 10px 12px;
 }
-.jb-contact { margin-top: 14px; font-size: var(--small); color: var(--muted); }
-.jb-contact a { color: var(--accent); text-decoration: none; }
+/* prominent, eye-comfortable contact line — large text, warm contrast, no motion */
+.jb-contact {
+  margin-top: 18px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #241d12;
+  border-inline-start: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  max-width: 60ch;
+}
+.jb-contact a {
+  color: #f0c877;
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: underline;
+}
 .hint b { color: var(--ink); font-weight: 600; }
 .steps-list { margin: 12px 0 0; padding-inline-start: 22px; font-size: var(--small); color: var(--muted); }
 .steps-list li { padding-block: 3px; }
