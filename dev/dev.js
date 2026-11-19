@@ -30,9 +30,10 @@
       only: [1402], note: "أحدث نسخة مدعومة بالسلسلة المحلية." }
   ];
 
-  // Only the chosen chain is warmed on tap. The full manifest stays in
-  // dev.appcache for offline use, but re-downloading every chain on the PS4
-  // made the page feel heavy and sometimes triggered "page not responding".
+  // Only the chosen chain is fetched on tap. dev.appcache is now just a file
+  // list for this script — no page registers it as an AppCache manifest. On the
+  // PS4 browser AppCache tried to pull every chain (~8 MB) in the background,
+  // which stalled the page and caused crashes.
   var SHARED_FILES = ["ag/ag.css"];
   var CHAIN_FILES = {
     bpf: ["bpf/"],
@@ -109,23 +110,11 @@
     noteEl.textContent = option.chainName + "، " + option.note;
   }
 
-  var AC = window.applicationCache;
   var warming = false;
-
-  function cacheLabel(status) {
-    if (!AC) return "الكاش غير مدعوم في المتصفح ده";
-    if (status === AC.UNCACHED) return "لم يُجهّز بعد";
-    if (status === AC.IDLE) return "مُجهّز ومحفوظ على الجهاز";
-    if (status === AC.CHECKING) return "جارٍ فحص التحديثات…";
-    if (status === AC.DOWNLOADING) return "جارٍ التحميل…";
-    if (status === AC.UPDATEREADY) return "تحديث جاهز للتثبيت";
-    if (status === AC.OBSOLETE) return "الكاش غير متاح";
-    return "حالة غير معروفة (" + status + ")";
-  }
 
   function refreshCache() {
     if (warming) return;
-    cacheEl.textContent = cacheLabel(AC ? AC.status : null);
+    cacheEl.textContent = "جاهز — ملفات السلسلة تُحمّل عند التفعيل";
   }
 
   function refreshState() {
@@ -160,18 +149,6 @@
     setTimeout(function () { try { button.focus(); } catch (e) {} }, 120);
   }
 
-
-  if (AC) {
-    ["checking", "downloading", "progress", "cached",
-      "updateready", "noupdate", "obsolete", "error"].forEach(function (evt) {
-      AC.addEventListener(evt, function () {
-        if (evt === "updateready" && AC.swapCache) {
-          try { AC.swapCache(); } catch (e) {}
-        }
-        refreshCache();
-      }, false);
-    });
-  }
 
   select.addEventListener("change", update);
 
@@ -345,9 +322,9 @@
       cacheEl.textContent = pct < 100 ? "جارٍ التحميل " + pct + "%" : "مُجهّز ومحفوظ على الجهاز";
     }
 
-    // One manifest is the single source of truth, but only the files the
-    // selected chain needs are fetched here. Everything else stays cached by
-    // AppCache for offline use without slowing down this activation.
+    // The manifest file stays the single source of truth for the file list,
+    // but only the selected chain's files are fetched here. Nothing is
+    // registered with AppCache, so the browser does no background download.
     readManifest("dev.appcache", "", DEV_FALLBACK.concat(JB_FALLBACK)).then(function (listed) {
       var wanted = SHARED_FILES.concat(CHAIN_FILES[option.chain] || []);
       var files = listed.filter(function (f) {

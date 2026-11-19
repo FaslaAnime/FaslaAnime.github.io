@@ -30,7 +30,9 @@
 
   // The small status panel previews the version under the pointer or keyboard focus.
   function preview(event) {
-    var row = event.target.closest(".row");
+    var target = event.target;
+    if (!target || !target.closest) return;
+    var row = target.closest(".row");
     if (!row) return;
     var item = FIRMWARES[Number(row.dataset.index)];
     if (!item) return;
@@ -38,22 +40,11 @@
     heroChain.textContent = item.chain;
   }
 
+  // mouseover/focusin work on the older WebKit build in the PS4 browser;
+  // pointerover is kept for modern browsers.
+  groupsEl.addEventListener("mouseover", preview);
   groupsEl.addEventListener("pointerover", preview);
   groupsEl.addEventListener("focusin", preview);
-
-  /* A single quiet fade for the few focal pieces. No scroll animations. */
-  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    var quiet = document.querySelectorAll(".hero h1, .hero .lead, .hero .actions, .panel, .block h2, .intro");
-    Array.prototype.forEach.call(quiet, function (el) { el.classList.add("quiet-in"); });
-    var fade = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("seen");
-        fade.unobserve(entry.target);
-      });
-    }, { threshold: 0.15 });
-    Array.prototype.forEach.call(quiet, function (el) { fade.observe(el); });
-  }
 
   render();
 })();
