@@ -114,6 +114,8 @@ select {
   border-radius: var(--radius);
   padding: 10px 12px;
 }
+.jb-contact { margin-top: 14px; font-size: var(--small); color: var(--muted); }
+.jb-contact a { color: var(--accent); text-decoration: none; }
 .hint b { color: var(--ink); font-weight: 600; }
 .steps-list { margin: 12px 0 0; padding-inline-start: 22px; font-size: var(--small); color: var(--muted); }
 .steps-list li { padding-block: 3px; }
