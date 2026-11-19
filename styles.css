@@ -40,10 +40,11 @@ h1, h2, h3, p, figure, dl, dd, dt { margin: 0; }
 .latin { direction: ltr; unicode-bidi: isolate; }
 
 /* One quiet column, mirrored for RTL. */
+/* Sized for the PS4 browser on a TV: a wide, centred column instead of a
+   narrow mobile-width strip with half the screen left empty. */
 .column, .top, .foot {
-  width: min(640px, calc(100% - 48px));
-  margin-inline-start: 12vw;
-  margin-inline-end: auto;
+  width: min(1180px, calc(100% - 96px));
+  margin-inline: auto;
 }
 .column {
   background: #161310;
@@ -168,7 +169,6 @@ h1 {
 .rights { margin-top: 6px; }
 
 @media (max-width: 900px) {
-  .column, .top, .foot { margin-inline-start: auto; margin-inline-end: auto; }
   .hero { padding-top: 18vh; }
 }
 
@@ -181,5 +181,22 @@ h1 {
   .actions { flex-wrap: wrap; gap: 16px; }
   .row { align-items: flex-start; padding-block: 8px; }
   .row-meta { max-width: 40%; white-space: normal; }
+}
+/* PS4 / TV: larger type and controls, readable from across the room. */
+@media (min-width: 1000px) {
+  :root {
+    --small: 20px;
+    --body: 22px;
+    --lead: 24px;
+    --head: 32px;
+    --display: 48px;
+  }
+  .column { padding: 48px 56px 16px; }
+  .top { padding-top: 64px; }
+  .hero { padding-top: 6vh; }
+  .lead, .notes dd, .panel-note { max-width: 72ch; }
+  .btn { min-height: 56px; padding: 14px 26px; font-size: 20px; }
+  .row { min-height: 48px; }
+  .panel { margin-top: 40px; }
 }
 

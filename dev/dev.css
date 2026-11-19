@@ -32,10 +32,11 @@ h1, h2, p { margin: 0; }
 .latin { direction: ltr; unicode-bidi: isolate; }
 code { font-family: ui-monospace, monospace; direction: ltr; unicode-bidi: isolate; color: var(--accent); }
 
+/* Sized for the PS4 browser on a TV: a wide, centred column instead of a
+   narrow mobile-width strip with half the screen left empty. */
 .column, .top, .foot {
-  width: min(640px, calc(100% - 48px));
-  margin-inline-start: 12vw;
-  margin-inline-end: auto;
+  width: min(1180px, calc(100% - 96px));
+  margin-inline: auto;
 }
 .column {
   background: #161310;
@@ -180,11 +181,25 @@ select {
 .contact a, .chain-note a { color: var(--accent); text-decoration: none; }
 .rights { margin-top: 6px; }
 
-@media (max-width: 900px) {
-  .column, .top, .foot { margin-inline: auto; }
-}
 @media (max-width: 520px) {
   .column, .top, .foot { width: calc(100% - 32px); }
   .column { padding: 24px 20px 8px; }
   .top { padding-top: 32px; }
+}
+/* PS4 / TV: larger type and controls, readable from across the room. */
+@media (min-width: 1000px) {
+  :root {
+    --small: 20px;
+    --body: 22px;
+    --lead: 24px;
+    --head: 32px;
+    --display: 48px;
+  }
+  .column { padding: 48px 56px 16px; }
+  .top { padding-top: 64px; }
+  .lead, .warn, .jb-contact { max-width: 72ch; }
+  .jb-contact { font-size: 26px; }
+  .jb-contact a { font-size: 30px; }
+  .btn { min-height: 62px; padding: 14px 30px; font-size: 24px; }
+  select { min-height: 58px; font-size: 22px; }
 }

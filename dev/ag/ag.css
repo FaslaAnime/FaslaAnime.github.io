@@ -20,10 +20,11 @@ body {
 a { color: inherit; }
 h1, p { margin: 0; }
 .latin { direction: ltr; unicode-bidi: isolate; }
+/* Sized for the PS4 browser on a TV: a wide, centred column instead of a
+   narrow mobile-width strip with half the screen left empty. */
 .column, .top {
-  width: min(640px, calc(100% - 48px));
-  margin-inline-start: 12vw;
-  margin-inline-end: auto;
+  width: min(1180px, calc(100% - 96px));
+  margin-inline: auto;
 }
 .column { background: var(--surface); padding: 40px 40px 24px; border-radius: var(--radius); }
 .top { display: flex; justify-content: space-between; align-items: baseline; padding-top: 56px; padding-bottom: 24px; }
@@ -89,5 +90,19 @@ h1 { font-size: 40px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.
 }
 .action:hover { background: #d9b46a; }
 body.done .state { color: #9fd08a; }
-@media (max-width: 900px) { .column, .top { margin-inline: auto; } }
 @media (max-width: 520px) { .column, .top { width: calc(100% - 32px); } .column { padding: 24px 20px; } .top { padding-top: 32px; } h1 { font-size: 32px; } }
+/* PS4 / TV: larger type and controls, readable from across the room. */
+@media (min-width: 1000px) {
+  body { font-size: 22px; }
+  .column { padding: 48px 56px 32px; }
+  .top { padding-top: 64px; }
+  h1 { font-size: 52px; }
+  .lead { font-size: 26px; max-width: 72ch; }
+  .warn, .notice { font-size: 20px; max-width: 72ch; }
+  .jb-contact { font-size: 26px; max-width: 72ch; }
+  .jb-contact a { font-size: 30px; }
+  .readout { font-size: 22px; }
+  .state { font-size: 24px; }
+  .action { min-height: 56px; padding-inline: 26px; font-size: 20px; }
+  .ram { font-size: 20px; }
+}
