@@ -115,6 +115,8 @@ select {
   padding: 10px 12px;
 }
 .hint b { color: var(--ink); font-weight: 600; }
+.steps-list { margin: 12px 0 0; padding-inline-start: 22px; font-size: var(--small); color: var(--muted); }
+.steps-list li { padding-block: 3px; }
 .chain-note { margin-top: 14px; font-size: var(--small); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 .btn {
@@ -132,6 +134,7 @@ select {
 .btn:focus { outline: 3px solid #fff; outline-offset: 4px; }
 .btn:hover { background: #d9b46a; }
 .btn:disabled { background: var(--surface); color: var(--muted); cursor: default; }
+
 .progress { margin-top: 16px; background: var(--bg); border-radius: var(--radius); padding: 14px; }
 .progress[hidden] { display: none; }
 .progress-head { display: flex; justify-content: space-between; gap: 16px; font-size: var(--small); }
@@ -156,6 +159,8 @@ select {
   color: var(--muted);
   font-size: var(--small);
 }
+.contact { margin-top: 6px; }
+.contact a, .chain-note a { color: var(--accent); text-decoration: none; }
 .rights { margin-top: 6px; }
 
 @media (max-width: 900px) {

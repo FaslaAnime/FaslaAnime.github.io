@@ -160,6 +160,7 @@
     setTimeout(function () { try { button.focus(); } catch (e) {} }, 120);
   }
 
+
   if (AC) {
     ["checking", "downloading", "progress", "cached",
       "updateready", "noupdate", "obsolete", "error"].forEach(function (evt) {
