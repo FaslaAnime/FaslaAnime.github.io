@@ -3,22 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>مصري | Masry — تفعيل الجولد هين من متصفح السوني 4</title>
-<meta name="description" content="مصري (Masry): هوست تفعيل سوني 4 مستضاف داخل الموقع. افتح الرابط على متصفح السوني ويتفعل GoldHEN من 4.50 حتى 14.02.">
+<title>مصري / Masry — الهوست الأساسي</title>
+<meta name="description" content="الهوست الأساسي لمصري، مبني من الصفر داخل الموقع، يشغّل كل السلاسل المحلية دون أي هوست خارجي.">
 <meta name="theme-color" content="#0c0a08">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-<!-- قاعدة الـ API لبوابة الترخيص.
-     السيرفر المحلي: اتركها ../ (نفس الأصل).
-     GitHub Pages + Cloudflare Worker: رابط الـ Worker كامل.
-     أو افتح الصفحة مرة بـ ?api=<رابط-الـWorker> وسيتحفظ تلقائياً. -->
-<meta name="masry-api" content="https://masry-license.mohamedsaadq389.workers.dev/">
-<!-- connect-src فيه https: عشان يسمح للـ XHR بالوصول للـ Worker على دومين تاني.
-     لو عايز تقيد أكتر، استبدل https: بدومين الـ Worker بالظبط. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self' https: http://localhost:*; form-action 'self'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'">
 <link rel="stylesheet" href="dev.css">
 </head>
 <body>
@@ -51,8 +44,6 @@
     <div class="panel-row"><span>السلسلة المقترحة</span><b id="devChain" dir="ltr">…</b></div>
     <div class="panel-row"><span>الحالة</span><b id="devState">…</b></div>
     <div class="panel-row"><span>الكاش</span><b id="devCache">…</b></div>
-    <div class="panel-row"><span>العلامة</span><b id="licenseName">…</b></div>
-    <div class="panel-row"><span>الترخيص</span><b id="licenseState">…</b></div>
   </section>
   <p class="chain-note">التغطية: 4.50 – 5.07 عبر BPF، و6.00 – 12.02 و12.50 – 13.52 عبر المحرك، و14.00 – 14.02 عبر Afterglow. النطاق 12.03 – 12.49 مفيش له سلسلة محلية.</p>
 
@@ -84,13 +75,11 @@
 </main>
 
 <footer class="foot">
-  <p id="licenseWm" class="rights">sistro</p>
   <p>مصري / Masry · الهوست الأساسي · المحرك والسلاسل تحت AGPL-3.0.</p>
   <p class="contact">تواصل واتساب: <a class="latin" dir="ltr" href="https://wa.me/966577384607">0577384607</a></p>
   <p class="rights">© 2026 Mohamed_0_9 · مصري / Masry.</p>
 </footer>
 
-<script src="license.min.js"></script>
-<script src="dev.min.js"></script>
+<script src="dev.js"></script>
 </body>
 </html>

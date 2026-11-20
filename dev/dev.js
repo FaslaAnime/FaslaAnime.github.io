@@ -60,23 +60,6 @@
   var progressFill = document.getElementById("progressFill");
   var progressNote = document.getElementById("progressNote");
 
-  // بوابة الترخيص: الزر يبقى مقفلاً لحد ما license.js يرد بحالة الجهاز.
-  function licenseAllows() {
-    var s = window.__MASRY_LICENSE__;
-    if (!s) return false;
-    return s.valid === true || s.status === "offline";
-  }
-
-  window.__MASRY_ONSTATE__ = function () {
-    if (warming) return;
-    var allow = licenseAllows();
-    button.disabled = !allow;
-    button.textContent = allow ? "فعّل التهكير" : "الاشتراك غير مُفعّل";
-  };
-
-  button.disabled = true;
-  button.textContent = "جارٍ التحقق…";
-
   function detect() {
     var ua = navigator.userAgent || "";
     var isPs4 = /PlayStation\s+4/i.test(ua);
@@ -312,10 +295,6 @@
   }
 
   button.addEventListener("click", function () {
-    if (!licenseAllows()) {
-      logEl.textContent = "الاشتراك غير مُفعّل. جدّد من الإدارة: واتساب 0577384607";
-      return;
-    }
     var option = current();
     var fw = detected.option === option && detected.key ? detected.key : option.fw;
     var target = targetFor(option, fw);
