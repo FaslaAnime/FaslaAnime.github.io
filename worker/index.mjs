@@ -11,7 +11,7 @@
 const SESSION_TTL = 12 * 60 * 60 * 1000;
 const BLOB_TOKEN_TTL = 10 * 60 * 1000;
 const ACTIVATION_DAYS = 30;
-const PBKDF2_ITERATIONS = 120000;
+const PBKDF2_ITERATIONS = 100000; // سقف Cloudflare Workers
 const ID_RE = /^[A-Za-z0-9_-]{8,64}$/;
 
 const te = new TextEncoder();
@@ -222,13 +222,13 @@ function loginThrottled(ip) {
 
 /* ---------------- الاستجابات ---------------- */
 
-function json(data, status) {
+function json(data, status, extra) {
   return new Response(JSON.stringify(data), {
     status: status || 200,
-    headers: {
+    headers: cors(Object.assign({
       "content-type": "application/json; charset=utf-8",
       "cache-control": "no-store"
-    }
+    }, extra || {}))
   });
 }
 
