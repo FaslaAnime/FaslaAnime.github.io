@@ -89,6 +89,20 @@ python -m http.server 8000
 النشر الأساسي: **GitHub Pages + Cloudflare Worker** — الموقع ثابت على Pages،
 والـ API/الأدمن على Worker مجاني. خطوات الإعداد الكاملة في [`worker/README.md`](worker/README.md).
 
+### تعقية الكود (Obfuscation)
+
+ملفات JS الأصلية (`app.js`, `redirect.js`, `dev/dev.js`, `dev/license.js`, `admin/admin.js`)
+فضلناها مصدراً مقروءاً، والموقع بيحمّل النسخ المشوّشة `.min.js`. إعادة التوليد:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\obfuscate.ps1
+```
+
+بعد أي تعديل في ملف مصدر، اعمل الخطوة دي واعمل commit للملفين معاً. ملاحظة: كودClient
+لازم يتقرأ في المتصفح عشان يتنفّذ، فـ «التشفير» هنا تعقية (mangle/compress) مش تشفير
+cryptographic — بيصعّب النسخ والفهم بس مش مستحيل. كود السيرفر/الـ Worker أصلاً مش متاح للزبون.
+.
+
 - الهوست (`dev/index.html`) بيعتبر الجهاز عند السيرفر ويعرض حالته؛ زر التفعيل يبقى
   مقفلاً إلا لـ `مُفعّل` أو `تجربة`. «منتهي» و«مُبطَل» يعرضوا رسالة تجديد بدون أي مسح.
 - لوحة الأدمن على `/admin/`: قائمة الأجهزة، النسخة، الحالة، آخر ظهور، وتاريخ الانتهاء.
