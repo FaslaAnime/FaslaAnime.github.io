@@ -1,0 +1,13 @@
+{
+  "name": "masry-license-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "سيرفر تراخيص وإدارة أجهزة هوست مصري / Masry — بلا مكتبات خارجية.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

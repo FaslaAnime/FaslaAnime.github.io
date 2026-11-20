@@ -1,4 +1,8 @@
 .taste-skill/
 node_modules/
+.wrangler/
+server/data.json
+server/.env
+server/*.log
 .DS_Store
 Thumbs.db

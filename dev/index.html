@@ -3,83 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>مصري / Masry — الهوست الأساسي</title>
-<meta name="description" content="الهوست الأساسي لمصري، مبني من الصفر داخل الموقع، يشغّل كل السلاسل المحلية دون أي هوست خارجي.">
+<title>ظ…طµط±ظٹ / Masry â€” ط§ظ„ظ‡ظˆط³طھ ط§ظ„ط£ط³ط§ط³ظٹ</title>
+<meta name="description" content="ط§ظ„ظ‡ظˆط³طھ ط§ظ„ط£ط³ط§ط³ظٹ ظ„ظ…طµط±ظٹطŒ ظ…ط¨ظ†ظٹ ظ…ظ† ط§ظ„طµظپط± ط¯ط§ط®ظ„ ط§ظ„ظ…ظˆظ‚ط¹طŒ ظٹط´ط؛ظ‘ظ„ ظƒظ„ ط§ظ„ط³ظ„ط§ط³ظ„ ط§ظ„ظ…ط­ظ„ظٹط© ط¯ظˆظ† ط£ظٹ ظ‡ظˆط³طھ ط®ط§ط±ط¬ظٹ.">
 <meta name="theme-color" content="#0c0a08">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'">
+<!-- ظ‚ط§ط¹ط¯ط© ط§ظ„ظ€ API ظ„ط¨ظˆط§ط¨ط© ط§ظ„طھط±ط®ظٹطµ.
+     ط§ظ„ط³ظٹط±ظپط± ط§ظ„ظ…ط­ظ„ظٹ: ط§طھط±ظƒظ‡ط§ ../ (ظ†ظپط³ ط§ظ„ط£طµظ„).
+     GitHub Pages + Cloudflare Worker: ط¶ط¹ ظ‡ظ†ط§ ط±ط§ط¨ط· ط§ظ„ظ€ Worker ظƒط§ظ…ظ„ط§ظ‹طŒ ظ…ط«ط§ظ„:
+     https://masry-license.YOURSUBDOMAIN.workers.dev/
+     ط£ظˆ ط§ظپطھط­ ط§ظ„طµظپط­ط© ظ…ط±ط© ط¨ظ€ ?api=<ط±ط§ط¨ط·-ط§ظ„ظ€Worker> ظˆط³ظٹطھط­ظپط¸ طھظ„ظ‚ط§ط¦ظٹط§ظ‹. -->
+<meta name="masry-api" content="https://masry-license.mohamedsaadq389.workers.dev/">
+<!-- connect-src ظپظٹظ‡ https: ط¹ط´ط§ظ† ظٹط³ظ…ط­ ظ„ظ„ظ€ XHR ط¨ط§ظ„ظˆطµظˆظ„ ظ„ظ„ظ€ Worker ط¹ظ„ظ‰ ط¯ظˆظ…ظٹظ† طھط§ظ†ظٹ.
+     ظ„ظˆ ط¹ط§ظٹط² طھظ‚ظٹط¯ ط£ظƒطھط±طŒ ط§ط³طھط¨ط¯ظ„ https: ط¨ط¯ظˆظ…ظٹظ† ط§ظ„ظ€ Worker ط¨ط§ظ„ط¸ط¨ط·. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self' https: http://localhost:*; form-action 'self'; frame-ancestors 'none'">
 <link rel="stylesheet" href="dev.css">
 </head>
 <body>
 
 <header class="top">
-  <a class="brand" href="../index.html">مصري <span class="brand-latin">Masry</span></a>
-  <a class="toplink" href="../index.html">الرئيسية ←</a>
+  <a class="brand" href="../index.html">ظ…طµط±ظٹ <span class="brand-latin">Masry</span></a>
+  <a class="toplink" href="../index.html">ط§ظ„ط±ط¦ظٹط³ظٹط© â†گ</a>
 </header>
 
 <main class="column">
-  <h1>الهوست الأساسي لمصري</h1>
-  <p class="lead">واجهة أصلية مكتوبة هنا، بتشغّل كل السلاسل المخزّنة جوه الموقع. مفيش هوست خارجي ولا رابط لشخص تاني.</p>
-  <p class="warn">التفعيل الفعلي محتاج تجربة على PS4 حقيقي. استخدم حساب منفصل ونسخة احتياطية قبل أي تفعيل.</p>
-  <p class="jb-contact">محتاج مساعدة تواصل مع مطور الموقع محمد <a class="latin" dir="ltr" href="https://wa.me/966577384607">0577384607</a></p>
-  <p class="hint">على السوني: حرّك <b>D-Pad</b> أو العصا للوصول للزرار، واضغط <b>X</b> للتفعيل. لو ظهرت رسالة «الموقع مش بيستجيب»، اختار <b>متابعة / انتظار</b> وسيب المتصفح مفتوح لحد ما السلسلة تخلص.</p>
+  <h1>ط§ظ„ظ‡ظˆط³طھ ط§ظ„ط£ط³ط§ط³ظٹ ظ„ظ…طµط±ظٹ</h1>
+  <p class="lead">ظˆط§ط¬ظ‡ط© ط£طµظ„ظٹط© ظ…ظƒطھظˆط¨ط© ظ‡ظ†ط§طŒ ط¨طھط´ط؛ظ‘ظ„ ظƒظ„ ط§ظ„ط³ظ„ط§ط³ظ„ ط§ظ„ظ…ط®ط²ظ‘ظ†ط© ط¬ظˆظ‡ ط§ظ„ظ…ظˆظ‚ط¹. ظ…ظپظٹط´ ظ‡ظˆط³طھ ط®ط§ط±ط¬ظٹ ظˆظ„ط§ ط±ط§ط¨ط· ظ„ط´ط®طµ طھط§ظ†ظٹ.</p>
+  <p class="warn">ط§ظ„طھظپط¹ظٹظ„ ط§ظ„ظپط¹ظ„ظٹ ظ…ط­طھط§ط¬ طھط¬ط±ط¨ط© ط¹ظ„ظ‰ PS4 ط­ظ‚ظٹظ‚ظٹ. ط§ط³طھط®ط¯ظ… ط­ط³ط§ط¨ ظ…ظ†ظپطµظ„ ظˆظ†ط³ط®ط© ط§ط­طھظٹط§ط·ظٹط© ظ‚ط¨ظ„ ط£ظٹ طھظپط¹ظٹظ„.</p>
+  <p class="jb-contact">ظ…ط­طھط§ط¬ ظ…ط³ط§ط¹ط¯ط© طھظˆط§طµظ„ ظ…ط¹ ظ…ط·ظˆط± ط§ظ„ظ…ظˆظ‚ط¹ ظ…ط­ظ…ط¯ <a class="latin" dir="ltr" href="https://wa.me/966577384607">0577384607</a></p>
+  <p class="hint">ط¹ظ„ظ‰ ط§ظ„ط³ظˆظ†ظٹ: ط­ط±ظ‘ظƒ <b>D-Pad</b> ط£ظˆ ط§ظ„ط¹طµط§ ظ„ظ„ظˆطµظˆظ„ ظ„ظ„ط²ط±ط§ط±طŒ ظˆط§ط¶ط؛ط· <b>X</b> ظ„ظ„طھظپط¹ظٹظ„. ظ„ظˆ ط¸ظ‡ط±طھ ط±ط³ط§ظ„ط© آ«ط§ظ„ظ…ظˆظ‚ط¹ ظ…ط´ ط¨ظٹط³طھط¬ظٹط¨آ»طŒ ط§ط®طھط§ط± <b>ظ…طھط§ط¨ط¹ط© / ط§ظ†طھط¸ط§ط±</b> ظˆط³ظٹط¨ ط§ظ„ظ…طھطµظپط­ ظ…ظپطھظˆط­ ظ„ط­ط¯ ظ…ط§ ط§ظ„ط³ظ„ط³ظ„ط© طھط®ظ„طµ.</p>
   <div class="actions">
-    <button class="btn" id="startBtn" type="button">فعّل التهكير</button>
+    <button class="btn" id="startBtn" type="button">ظپط¹ظ‘ظ„ ط§ظ„طھظ‡ظƒظٹط±</button>
   </div>
   <div class="progress" id="progress" hidden>
-    <div class="progress-head"><span id="progressLabel">جارٍ تجهيز الكاش…</span><b id="progressPct" dir="ltr">0%</b></div>
+    <div class="progress-head"><span id="progressLabel">ط¬ط§ط±ظچ طھط¬ظ‡ظٹط² ط§ظ„ظƒط§ط´â€¦</span><b id="progressPct" dir="ltr">0%</b></div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <p class="progress-note" id="progressNote">…</p>
+    <p class="progress-note" id="progressNote">â€¦</p>
   </div>
-  <pre class="log" id="log" aria-live="polite">جاهز.</pre>
+  <pre class="log" id="log" aria-live="polite">ط¬ط§ظ‡ط².</pre>
 
-  <section class="panel" data-ui aria-label="كشف الجهاز والنسخة">
-    <div class="panel-head"><span>الفحص</span><span>مباشر</span></div>
-    <div class="panel-row"><span>الجهاز</span><b id="devDevice">…</b></div>
-    <div class="panel-row"><span>النسخة المكتشفة</span><b id="devFw" dir="ltr">…</b></div>
-    <div class="panel-row"><span>السلسلة المقترحة</span><b id="devChain" dir="ltr">…</b></div>
-    <div class="panel-row"><span>الحالة</span><b id="devState">…</b></div>
-    <div class="panel-row"><span>الكاش</span><b id="devCache">…</b></div>
+  <section class="panel" data-ui aria-label="ظƒط´ظپ ط§ظ„ط¬ظ‡ط§ط² ظˆط§ظ„ظ†ط³ط®ط©">
+    <div class="panel-head"><span>ط§ظ„ظپط­طµ</span><span>ظ…ط¨ط§ط´ط±</span></div>
+    <div class="panel-row"><span>ط§ظ„ط¬ظ‡ط§ط²</span><b id="devDevice">â€¦</b></div>
+    <div class="panel-row"><span>ط§ظ„ظ†ط³ط®ط© ط§ظ„ظ…ظƒطھط´ظپط©</span><b id="devFw" dir="ltr">â€¦</b></div>
+    <div class="panel-row"><span>ط§ظ„ط³ظ„ط³ظ„ط© ط§ظ„ظ…ظ‚طھط±ط­ط©</span><b id="devChain" dir="ltr">â€¦</b></div>
+    <div class="panel-row"><span>ط§ظ„ط­ط§ظ„ط©</span><b id="devState">â€¦</b></div>
+    <div class="panel-row"><span>ط§ظ„ظƒط§ط´</span><b id="devCache">â€¦</b></div>
+    <div class="panel-row"><span>ط§ظ„ط¹ظ„ط§ظ…ط©</span><b id="licenseName">â€¦</b></div>
+    <div class="panel-row"><span>ط§ظ„طھط±ط®ظٹطµ</span><b id="licenseState">â€¦</b></div>
   </section>
-  <p class="chain-note">التغطية: 4.50 – 5.07 عبر BPF، و6.00 – 12.02 و12.50 – 13.52 عبر المحرك، و14.00 – 14.02 عبر Afterglow. النطاق 12.03 – 12.49 مفيش له سلسلة محلية.</p>
+  <p class="chain-note">ط§ظ„طھط؛ط·ظٹط©: 4.50 â€“ 5.07 ط¹ط¨ط± BPFطŒ ظˆ6.00 â€“ 12.02 ظˆ12.50 â€“ 13.52 ط¹ط¨ط± ط§ظ„ظ…ط­ط±ظƒطŒ ظˆ14.00 â€“ 14.02 ط¹ط¨ط± Afterglow. ط§ظ„ظ†ط·ط§ظ‚ 12.03 â€“ 12.49 ظ…ظپظٹط´ ظ„ظ‡ ط³ظ„ط³ظ„ط© ظ…ط­ظ„ظٹط©.</p>
 
   <section class="block" aria-labelledby="pick-title">
-    <h2 id="pick-title">اختر نسخة الجهاز</h2>
-    <p class="intro">لو الكشف التلقائي ما شافش النسخة، اختارها بإيدك من القائمة.</p>
+    <h2 id="pick-title">ط§ط®طھط± ظ†ط³ط®ط© ط§ظ„ط¬ظ‡ط§ط²</h2>
+    <p class="intro">ظ„ظˆ ط§ظ„ظƒط´ظپ ط§ظ„طھظ„ظ‚ط§ط¦ظٹ ظ…ط§ ط´ط§ظپط´ ط§ظ„ظ†ط³ط®ط©طŒ ط§ط®طھط§ط±ظ‡ط§ ط¨ط¥ظٹط¯ظƒ ظ…ظ† ط§ظ„ظ‚ط§ط¦ظ…ط©.</p>
     <label class="field">
-      <span>النسخة</span>
+      <span>ط§ظ„ظ†ط³ط®ط©</span>
       <select id="fwSelect"></select>
     </label>
-    <p class="chain-note" id="chainNote">…</p>
+    <p class="chain-note" id="chainNote">â€¦</p>
   </section>
 
   <section class="block" aria-labelledby="reboot-title">
-    <h2 id="reboot-title">بعد إعادة تشغيل السوني</h2>
-    <p class="intro">التهكير مش دائم: الـ HEN بيشتغل في الرام، وأي ريستارت بينظّفه. متصفح السوني كمان مبيفتحش نفسه من غير تدخل منك، فالسلسلة لازم تتشغّل من جديد بعد كل تشغيل.</p>
+    <h2 id="reboot-title">ط¨ط¹ط¯ ط¥ط¹ط§ط¯ط© طھط´ط؛ظٹظ„ ط§ظ„ط³ظˆظ†ظٹ</h2>
+    <p class="intro">ط§ظ„طھظ‡ظƒظٹط± ظ…ط´ ط¯ط§ط¦ظ…: ط§ظ„ظ€ HEN ط¨ظٹط´طھط؛ظ„ ظپظٹ ط§ظ„ط±ط§ظ…طŒ ظˆط£ظٹ ط±ظٹط³طھط§ط±طھ ط¨ظٹظ†ط¸ظ‘ظپظ‡. ظ…طھطµظپط­ ط§ظ„ط³ظˆظ†ظٹ ظƒظ…ط§ظ† ظ…ط¨ظٹظپطھط­ط´ ظ†ظپط³ظ‡ ظ…ظ† ط؛ظٹط± طھط¯ط®ظ„ ظ…ظ†ظƒطŒ ظپط§ظ„ط³ظ„ط³ظ„ط© ظ„ط§ط²ظ… طھطھط´ط؛ظ‘ظ„ ظ…ظ† ط¬ط¯ظٹط¯ ط¨ط¹ط¯ ظƒظ„ طھط´ط؛ظٹظ„.</p>
     <ol class="steps-list">
-      <li>افتح متصفح السوني.</li>
-      <li>افتح الموقع من المفضلة.</li>
-      <li>اضغط «فعّل التهكير» واستنى لحد ما السلسلة تخلص.</li>
+      <li>ط§ظپطھط­ ظ…طھطµظپط­ ط§ظ„ط³ظˆظ†ظٹ.</li>
+      <li>ط§ظپطھط­ ط§ظ„ظ…ظˆظ‚ط¹ ظ…ظ† ط§ظ„ظ…ظپط¶ظ„ط©.</li>
+      <li>ط§ط¶ط؛ط· آ«ظپط¹ظ‘ظ„ ط§ظ„طھظ‡ظƒظٹط±آ» ظˆط§ط³طھظ†ظ‰ ظ„ط­ط¯ ظ…ط§ ط§ظ„ط³ظ„ط³ظ„ط© طھط®ظ„طµ.</li>
     </ol>
-    <p class="chain-note">اللي بيفضل محفوظ هو إعدادات الـ DNS بس.</p>
+    <p class="chain-note">ط§ظ„ظ„ظٹ ط¨ظٹظپط¶ظ„ ظ…ط­ظپظˆط¸ ظ‡ظˆ ط¥ط¹ط¯ط§ط¯ط§طھ ط§ظ„ظ€ DNS ط¨ط³.</p>
   </section>
 
   <section class="block" aria-labelledby="about-title">
-    <h2 id="about-title">عن هذه الواجهة</h2>
-    <p class="intro">الكود والشكل هنا مكتوبين من الصفر لهذا الموقع. ملفات الاستغلال والبايلودات نفسها بحث وتطوير ناس تانية، تحت رخصة <span class="latin">AGPL-3.0</span>، ومخزّنة محلياً في <code>jb/</code> و<code>ag/</code> و<code>bpf/</code>. الإسناد الكامل موجود في ملفات <code>NOTICE.md</code>.</p>
+    <h2 id="about-title">ط¹ظ† ظ‡ط°ظ‡ ط§ظ„ظˆط§ط¬ظ‡ط©</h2>
+    <p class="intro">ط§ظ„ظƒظˆط¯ ظˆط§ظ„ط´ظƒظ„ ظ‡ظ†ط§ ظ…ظƒطھظˆط¨ظٹظ† ظ…ظ† ط§ظ„طµظپط± ظ„ظ‡ط°ط§ ط§ظ„ظ…ظˆظ‚ط¹. ظ…ظ„ظپط§طھ ط§ظ„ط§ط³طھط؛ظ„ط§ظ„ ظˆط§ظ„ط¨ط§ظٹظ„ظˆط¯ط§طھ ظ†ظپط³ظ‡ط§ ط¨ط­ط« ظˆطھط·ظˆظٹط± ظ†ط§ط³ طھط§ظ†ظٹط©طŒ طھط­طھ ط±ط®طµط© <span class="latin">AGPL-3.0</span>طŒ ظˆظ…ط®ط²ظ‘ظ†ط© ظ…ط­ظ„ظٹط§ظ‹ ظپظٹ <code>jb/</code> ظˆ<code>ag/</code> ظˆ<code>bpf/</code>. ط§ظ„ط¥ط³ظ†ط§ط¯ ط§ظ„ظƒط§ظ…ظ„ ظ…ظˆط¬ظˆط¯ ظپظٹ ظ…ظ„ظپط§طھ <code>NOTICE.md</code>.</p>
   </section>
 </main>
 
 <footer class="foot">
-  <p>مصري / Masry · الهوست الأساسي · المحرك والسلاسل تحت AGPL-3.0.</p>
-  <p class="contact">تواصل واتساب: <a class="latin" dir="ltr" href="https://wa.me/966577384607">0577384607</a></p>
-  <p class="rights">© 2026 Mohamed_0_9 · مصري / Masry.</p>
+  <p id="licenseWm" class="rights">sistro</p>
+  <p>ظ…طµط±ظٹ / Masry آ· ط§ظ„ظ‡ظˆط³طھ ط§ظ„ط£ط³ط§ط³ظٹ آ· ط§ظ„ظ…ط­ط±ظƒ ظˆط§ظ„ط³ظ„ط§ط³ظ„ طھط­طھ AGPL-3.0.</p>
+  <p class="contact">طھظˆط§طµظ„ ظˆط§طھط³ط§ط¨: <a class="latin" dir="ltr" href="https://wa.me/966577384607">0577384607</a></p>
+  <p class="rights">آ© 2026 Mohamed_0_9 آ· ظ…طµط±ظٹ / Masry.</p>
 </footer>
 
+<script src="license.js"></script>
 <script src="dev.js"></script>
 </body>
 </html>

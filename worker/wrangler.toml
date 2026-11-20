@@ -1,0 +1,22 @@
+# إعدادات Cloudflare Worker لمصري / Masry.
+# انشر بهذه الخطوات:
+#   cd worker
+#   npx wrangler kv:namespace create MASRY_KV      # انسخ الـ id والصقه في الأسفل
+#   npx wrangler secret put ADMIN_PASSWORD         # كلمة مرور الأدمن
+#   npx wrangler deploy
+
+name = "masry-license"
+main = "index.mjs"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "MASRY_KV"
+id = "b843599c07454858a456f7e95ae81d27"
+
+[vars]
+WATERMARK = "sistro"
+OWNER = "Mohamed_0_9"
+TRIAL_DAYS = "3"
+# عنوان موقع GitHub Pages (بلا شرطة في الآخر).
+PAGES_ORIGIN = "https://faslaanime.github.io"
