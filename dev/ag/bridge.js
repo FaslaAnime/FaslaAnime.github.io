@@ -23,7 +23,14 @@
   if (!isRun) {
     var msg = document.getElementById("agMsg");
     if (msg) msg.textContent = "جارٍ تشغيل السلسلة…";
-    setTimeout(function () { location.replace("./run.html"); }, 700);
+    var keep = ["mem", "hx1400", "attempts", "verbose", "probe", "stop"];
+    var qs = new URLSearchParams();
+    keep.forEach(function (k) {
+      var v = params.get(k);
+      if (v !== null) qs.set(k, v);
+    });
+    var suffix = qs.toString() ? "?" + qs.toString() : "";
+    setTimeout(function () { location.replace("./run.html" + suffix); }, 700);
     return;
   }
 

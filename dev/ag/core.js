@@ -114,7 +114,7 @@ const HX_MEM =
 // 1.85 MB is enough. So the carrier starts small and grows only when
 // `sourceCovered` rejects an attempt, which keeps the largest piece of work
 // out of the window in which fakeHost's layout has to hold still.
-const CARRIER_CAP = HX_MEM ? HX_MEM.slots : 12000000;
+const CARRIER_CAP = HX_MEM ? HX_MEM.slots : 20000000;
 
 let CARRIER_SLOTS = Math.min(CARRIER_CAP, 400000);
 let CARRIER_BYTES = CARRIER_SLOTS * 8;
@@ -125,7 +125,10 @@ let CARRIER_BYTES = CARRIER_SLOTS * 8;
 // rather than a single attempt, and the ceiling has to carry the largest
 // regime (measured 8,619,650). Starting small and growing exactly keeps the
 // ordinary case light all the same.
-const CARRIER_MAX = 9000000; // 72 MB
+// كان 9000000 (72MB) — بعض الأجهزة بتسحب حجم أكبر من كده، فالـ coverage
+// كان يفشل في كل المحاولات بعد ما الحمّال يوصل للسقف. رُفع لـ 160MB مع بقاء
+// النمو تدريجي، فالأجهزة العادية مش بتتأثر.
+const CARRIER_MAX = 20000000; // 160 MB
 
 function growCarrier(minSlots) {
   const cap = Math.min(CARRIER_CAP, CARRIER_MAX);
